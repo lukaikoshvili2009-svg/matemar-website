@@ -198,6 +198,8 @@ section{position:relative}
 .pcard__icon{width:60px;height:60px;border-radius:16px;display:grid;place-items:center;font-size:1.8rem;background:color-mix(in srgb,var(--accent) 14%,#fff);margin-bottom:1.2rem}
 .pcard h3{color:var(--navy);font-size:1.22rem;margin-bottom:.5rem}
 .pcard p{color:var(--muted);font-size:.96rem}
+.pcard__more{display:inline-block;margin-top:1rem;color:var(--accent);font-weight:700;font-size:.92rem;transition:gap .2s}
+.pcard:hover .pcard__more{text-decoration:underline}
 
 /* ===== Colors ===== */
 .colors{background:var(--bg)}

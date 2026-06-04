@@ -15,10 +15,14 @@ content:
         fields:
           - { name: title_ka, label: "სათაური (ქართ.)", type: string }
           - { name: title_en, label: "Title (English)", type: string }
-          - { name: desc_ka, label: "აღწერა (ქართ.)", type: text }
-          - { name: desc_en, label: "Description (English)", type: text }
+          - { name: desc_ka, label: "მოკლე აღწერა (ქართ.)", type: text }
+          - { name: desc_en, label: "Short description (English)", type: text }
+          - { name: body_ka, label: "დეტალური აღწერა / გვერდი (ქართ.)", type: text }
+          - { name: body_en, label: "Full description / page (English)", type: text }
+          - { name: image, label: "სურათი (არასავალდებულო)", type: image }
           - { name: icon, label: "ხატულა / emoji", type: string }
           - { name: color, label: "ფერი / color (hex, მაგ: #2f7de1)", type: string }
+          - { name: slug, label: "URL slug (მაგ: interior-paint)", type: string }
 
   - name: clients
     label: "🤝 კლიენტები (Clients)"

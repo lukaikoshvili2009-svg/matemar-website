@@ -1,52 +1,76 @@
 {
   "items": [
     {
+      "slug": "interior-paint",
       "icon": "🖌️",
       "color": "#2f7de1",
+      "image": "",
       "title_ka": "ინტერიერის საღებავი",
       "title_en": "Interior paint",
       "desc_ka": "წყალდისპერსიული საღებავი კედლებისა და ჭერისთვის — სუნთქვადი, უსუნო და ადვილად დასაბანი.",
-      "desc_en": "Water-based paint for walls and ceilings — breathable, odorless and easy to clean."
+      "desc_en": "Water-based paint for walls and ceilings — breathable, odorless and easy to clean.",
+      "body_ka": "მაღალხარისხიანი წყალდისპერსიული საღებავი შიდა კედლებისა და ჭერისთვის. ქმნის სასიამოვნო მქრქალ ზედაპირს, მდგრადია გახეხვის მიმართ და ადვილად ირეცხება. პრაქტიკულად უსუნოა, სწრაფად შრება და ეკოლოგიურად სუფთაა — უსაფრთხო საცხოვრებელი და საოფისე სივრცეებისთვის. ხელმისაწვდომია ფერების ფართო პალიტრაში ზუსტი დოზირების სისტემით.",
+      "body_en": "Premium water-based paint for interior walls and ceilings. It creates a pleasant matte finish, resists scuffing and is easy to wash. Practically odorless, fast-drying and eco-friendly — safe for homes and offices. Available in a wide palette through our precise tinting system."
     },
     {
+      "slug": "exterior-paint",
       "icon": "🏠",
       "color": "#1aa05a",
+      "image": "",
       "title_ka": "ექსტერიერის საღებავი",
       "title_en": "Exterior paint",
       "desc_ka": "ფასადის საღებავი მაღალი ამინდმედეგობით — მზის, წვიმისა და ტემპერატურის ცვალებადობისთვის.",
-      "desc_en": "Façade paint with high weather resistance — built for sun, rain and temperature swings."
+      "desc_en": "Façade paint with high weather resistance — built for sun, rain and temperature swings.",
+      "body_ka": "ფასადის საღებავი, რომელიც შექმნილია ღია ცის ქვეშ ხანგრძლივი მსახურებისთვის. მდგრადია მზის, წვიმის, ყინვისა და ტემპერატურის ცვალებადობის მიმართ, არ ხუნდება და ინარჩუნებს ფერს წლების განმავლობაში. სუნთქვადი სტრუქტურა იცავს კედელს ტენისა და ობისგან.",
+      "body_en": "Façade paint engineered for long service outdoors. It withstands sun, rain, frost and temperature swings, resists fading and keeps its color for years. Its breathable structure protects walls from moisture and mold."
     },
     {
+      "slug": "primer",
       "icon": "🪣",
       "color": "#f4b400",
+      "image": "",
       "title_ka": "გრუნტი",
       "title_en": "Primer",
       "desc_ka": "ღრმად შემავალი გრუნტი ზედაპირის გასამაგრებლად და საღებავის უკეთესი ადჰეზიისთვის.",
-      "desc_en": "Deep-penetrating primer that strengthens the surface and improves paint adhesion."
+      "desc_en": "Deep-penetrating primer that strengthens the surface and improves paint adhesion.",
+      "body_ka": "ღრმად შემავალი გრუნტი, რომელიც ამაგრებს ზედაპირს და აუმჯობესებს საღებავის ან წებოს შეჭიდულობას. ამცირებს მასალის ხარჯს და უზრუნველყოფს ერთგვაროვან, გამძლე საფარს. გამოიყენება როგორც შიდა, ისე გარე სამუშაოებისთვის.",
+      "body_en": "A deep-penetrating primer that strengthens the surface and improves the adhesion of paint or adhesive. It reduces material consumption and ensures an even, durable finish. Suitable for both interior and exterior work."
     },
     {
+      "slug": "tile-adhesive",
       "icon": "🧱",
       "color": "#ff5a3c",
+      "image": "",
       "title_ka": "წებოცემენტი",
       "title_en": "Tile adhesive",
       "desc_ka": "ფილისა და კერამიკული ფილების საიმედო წებოცემენტი მაღალი შეჭიდულობით.",
-      "desc_en": "Reliable adhesive cement for tiles and ceramics with strong bonding strength."
+      "desc_en": "Reliable adhesive cement for tiles and ceramics with strong bonding strength.",
+      "body_ka": "საიმედო წებოცემენტი კერამიკული ფილების, კერამოგრანიტისა და ბუნებრივი ქვის მოსაპირკეთებლად. მაღალი შეჭიდულობა და ელასტიურობა უზრუნველყოფს მყარ დაფიქსირებას იატაკსა და კედელზე, შიდა და გარე პირობებში.",
+      "body_en": "Reliable adhesive cement for ceramic tiles, porcelain and natural stone. High bonding strength and elasticity ensure a solid fix on floors and walls, indoors and outdoors."
     },
     {
+      "slug": "color-catalog",
       "icon": "🎨",
       "color": "#8a4dd6",
+      "image": "",
       "title_ka": "ფერების კატალოგი",
       "title_en": "Color catalog",
       "desc_ka": "ასობით ელფერი — ვამზადებთ თქვენთვის სასურველ ფერს ზუსტი დოზირების სისტემით.",
-      "desc_en": "Hundreds of shades — we mix the exact color you want with our precise tinting system."
+      "desc_en": "Hundreds of shades — we mix the exact color you want with our precise tinting system.",
+      "body_ka": "ასობით მზა ელფერი და ზუსტი დოზირების სისტემა, რომელიც საშუალებას გვაძლევს მოვამზადოთ თქვენთვის სასურველი თითქმის ნებისმიერი ფერი. იხილეთ სრული პალიტრა ფერების გვერდზე და შეარჩიეთ თქვენი ინტერიერისთვის იდეალური ტონი.",
+      "body_en": "Hundreds of ready shades and a precise tinting system that lets us mix almost any color you want. Browse the full palette on our colors page and pick the perfect tone for your space."
     },
     {
+      "slug": "other-products",
       "icon": "📦",
       "color": "#0fb5ba",
+      "image": "",
       "title_ka": "სხვა პროდუქცია",
       "title_en": "Other products",
       "desc_ka": "დამხმარე სამშენებლო მასალები და ხსნარები — ერთ სივრცეში, ერთი მომწოდებლისგან.",
-      "desc_en": "Auxiliary construction materials and solutions — all in one place, from a single supplier."
+      "desc_en": "Auxiliary construction materials and solutions — all in one place, from a single supplier.",
+      "body_ka": "დამხმარე სამშენებლო მასალები და ხსნარები — შპაკლები, ანტისეპტიკები და სხვა პროდუქცია, რომელიც სჭირდება თქვენს ობიექტს. ერთი მომწოდებლისგან, ხარისხის გარანტიით. დაგვიკავშირდით კონკრეტული საჭიროებისთვის.",
+      "body_en": "Auxiliary construction materials and solutions — fillers, antiseptics and other products your project needs. From a single supplier, with a quality guarantee. Contact us for specific requirements."
     }
   ]
 }

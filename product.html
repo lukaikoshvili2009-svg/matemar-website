@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>პროდუქტი | Matemar</title>
+  <meta name="description" content="მათემარის პროდუქტი — ხარისხიანი ქართული საღებავი და სამშენებლო მასალა." />
+  <meta name="theme-color" content="#0d1b3e" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d1b3e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='800' fill='%23fff' text-anchor='middle'%3EMM%3C/text%3E%3Ccircle cx='25' cy='8' r='4' fill='%23ff5a3c'/%3E%3C/svg%3E" />
+  <style>
+    .cat-top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:50}
+    .cat-top__inner{display:flex;align-items:center;justify-content:space-between;height:66px;gap:1rem}
+    .cat-top .brand__text strong{color:#fff}
+    .cat-top .brand__text small{color:#8c9bc6}
+    .cat-top__right{display:flex;align-items:center;gap:1.2rem}
+    .cat-back{color:#cdd8f5;font-weight:600;font-size:.95rem;display:inline-flex;align-items:center;gap:.4rem;transition:color .2s}
+    .cat-back:hover{color:#fff}
+    .cat-lang{display:flex;align-items:center;gap:.35rem;font-weight:700}
+    .cat-lang button{background:none;border:none;color:#8f9fc7;cursor:pointer;font-family:var(--ff);font-size:.9rem;font-weight:700}
+    .cat-lang button.is-active{color:#fff}
+
+    .pd-wrap{padding:2.4rem 0 3.5rem;background:var(--bg-soft);min-height:60vh}
+    .pd-crumbs{font-size:.9rem;color:var(--muted);margin-bottom:1.4rem}
+    .pd-crumbs a{color:var(--muted)}
+    .pd-crumbs a:hover{color:var(--orange)}
+    .pd-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:2.6rem;align-items:start}
+    .pd-visual{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;display:grid;place-items:center;position:relative}
+    .pd-visual .ico{font-size:5.5rem;filter:drop-shadow(0 8px 16px rgba(0,0,0,.25))}
+    .pd-visual img{width:100%;height:100%;object-fit:cover}
+    .pd-info h1{font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:800;color:var(--navy);letter-spacing:-.5px;line-height:1.12}
+    .pd-lead{color:var(--ink);font-size:1.12rem;font-weight:600;margin-top:.9rem}
+    .pd-body{color:var(--muted);font-size:1.05rem;margin-top:1.1rem;line-height:1.8}
+    .pd-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.8rem}
+    .pd-spec{margin-top:1.8rem;border-top:1px solid var(--line);padding-top:1.4rem;display:flex;flex-wrap:wrap;gap:.6rem}
+    .pd-tag{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.45rem 1rem;font-size:.9rem;font-weight:600;color:var(--navy)}
+
+    .pd-more{margin-top:3.2rem}
+    .pd-more h2{font-size:1.3rem;color:var(--navy);font-weight:800;margin-bottom:1.2rem}
+    .pd-more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .pd-mini{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+    .pd-mini:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+    .pd-mini .bar{height:8px}
+    .pd-mini .mini-in{padding:.8rem .9rem;display:flex;align-items:center;gap:.6rem}
+    .pd-mini .mini-ico{font-size:1.5rem}
+    .pd-mini .mini-t{font-weight:700;color:var(--navy);font-size:.95rem}
+
+    .pd-loading{text-align:center;color:var(--muted);padding:4rem 1rem}
+    .pd-foot{background:var(--navy);color:#8c9bc6;text-align:center;padding:1.4rem 0;font-size:.85rem}
+    .pd-foot a{color:#cdd8f5}
+
+    @media (max-width:760px){
+      .cat-top__inner{height:auto;min-height:58px;flex-wrap:wrap;gap:.4rem;padding:.5rem 0}
+      .cat-top .brand__text small{display:none}
+      .cat-back span:last-child{display:none}
+      .pd-grid{grid-template-columns:1fr;gap:1.6rem}
+      .pd-more-grid{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cat-top">
+    <div class="container cat-top__inner">
+      <a href="index.html" class="brand brand--light" aria-label="Matemar">
+        <span class="brand__mark"><span class="brand__mm">MM</span><span class="brand__dot"></span></span>
+        <span class="brand__text">
+          <strong data-ka="მათემარ" data-en="MATEMAR">მათემარ</strong>
+          <small data-ka="პროდუქცია" data-en="PRODUCTS">პროდუქცია</small>
+        </span>
+      </a>
+      <div class="cat-top__right">
+        <a class="cat-back" href="index.html#products"><span>←</span> <span data-ka="პროდუქცია" data-en="Products">პროდუქცია</span></a>
+        <div class="cat-lang" id="lang">
+          <button class="is-active" data-lang="ka">ქარ</button><span>/</span><button data-lang="en">ENG</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="pd-wrap">
+    <div class="container">
+      <div class="pd-loading" id="loading" data-ka="იტვირთება…" data-en="Loading…">იტვირთება…</div>
+      <div id="content" hidden>
+        <div class="pd-crumbs">
+          <a href="index.html" data-ka="მთავარი" data-en="Home">მთავარი</a> ·
+          <a href="index.html#products" data-ka="პროდუქცია" data-en="Products">პროდუქცია</a> ·
+          <span id="crumbName"></span>
+        </div>
+        <div class="pd-grid">
+          <div class="pd-visual" id="visual"><span class="ico" id="visualIcon"></span></div>
+          <div class="pd-info">
+            <h1 id="pName"></h1>
+            <p class="pd-lead" id="pLead"></p>
+            <div class="pd-body" id="pBody"></div>
+            <div class="pd-actions">
+              <a class="btn js-tel1" id="callBtn" href="tel:+995574477447" data-ka="დარეკეთ ახლავე" data-en="Call now">დარეკეთ ახლავე</a>
+              <a class="btn btn--ghost" href="index.html#contact" data-ka="შეთავაზების მიღება" data-en="Get a quote">შეთავაზების მიღება</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pd-more">
+          <h2 data-ka="სხვა პროდუქცია" data-en="Other products">სხვა პროდუქცია</h2>
+          <div class="pd-more-grid" id="moreGrid"></div>
+        </div>
+      </div>
+
+      <div class="pd-loading" id="notfound" hidden>
+        <p data-ka="პროდუქტი ვერ მოიძებნა." data-en="Product not found.">პროდუქტი ვერ მოიძებნა.</p>
+        <p style="margin-top:1rem"><a class="btn" href="index.html#products" data-ka="პროდუქციაში დაბრუნება" data-en="Back to products">პროდუქციაში დაბრუნება</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pd-foot">
+    <div class="container">© <span id="year">2026</span> MM — შპს მათემარ · <a href="index.html" data-ka="მთავარი გვერდი" data-en="Home">მთავარი გვერდი</a></div>
+  </footer>
+
+  <script>
+  (function(){
+    'use strict';
+    const $ = s => document.querySelector(s);
+    const STORAGE_KEY = 'matemar-lang';
+    let lang='ka', product=null, all=[];
+
+    try { lang = localStorage.getItem(STORAGE_KEY) || 'ka'; } catch(e){}
+    function applyLang(l){
+      lang=l; document.documentElement.lang=l;
+      document.querySelectorAll('[data-ka]').forEach(el=>{ const v=el.getAttribute('data-'+l); if(v!=null) el.textContent=v; });
+      document.querySelectorAll('.cat-lang button').forEach(b=>b.classList.toggle('is-active', b.dataset.lang===l));
+      try{ localStorage.setItem(STORAGE_KEY,l); }catch(e){}
+      if(product) renderProduct();
+    }
+    document.querySelectorAll('.cat-lang button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+    const yr=$('#year'); if(yr) yr.textContent=new Date().getFullYear();
+
+    function param(n){ return new URLSearchParams(location.search).get(n); }
+    const T = (o,base)=> (o[base+'_'+lang] || o[base+'_ka'] || o[base+'_en'] || '');
+
+    function renderProduct(){
+      if(!product) return;
+      const name=T(product,'title');
+      document.title = name + ' | Matemar';
+      $('#crumbName').textContent = name;
+      $('#pName').textContent = name;
+      $('#pLead').textContent = T(product,'desc');
+      $('#pBody').textContent = T(product,'body');
+      const visual=$('#visual');
+      visual.style.background = 'linear-gradient(150deg,'+(product.color||'#2f7de1')+',#0d1b3e)';
+      if(product.image){
+        visual.innerHTML = '<img src="'+product.image+'" alt="'+name+'">';
+      } else {
+        visual.innerHTML = '<span class="ico">'+(product.icon||'🎨')+'</span>';
+      }
+    }
+
+    function renderMore(){
+      const grid=$('#moreGrid'); grid.innerHTML='';
+      all.filter(p=>p!==product).slice(0,4).forEach(p=>{
+        const a=document.createElement('a');
+        a.className='pd-mini';
+        a.href='product.html?id='+encodeURIComponent(p.slug||'');
+        const bar=document.createElement('div'); bar.className='bar'; bar.style.background=p.color||'#2f7de1';
+        const inner=document.createElement('div'); inner.className='mini-in';
+        const ico=document.createElement('span'); ico.className='mini-ico'; ico.textContent=p.icon||'🎨';
+        const t=document.createElement('span'); t.className='mini-t'; t.textContent=T(p,'title');
+        inner.append(ico,t); a.append(bar,inner); grid.appendChild(a);
+      });
+    }
+
+    Promise.all([
+      fetch('content/products.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null),
+      fetch('content/settings.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).catch(()=>null)
+    ]).then(([pdata,settings])=>{
+      $('#loading').hidden=true;
+      all = (pdata && Array.isArray(pdata.items)) ? pdata.items : [];
+      const id=param('id'); const i=parseInt(param('i'),10);
+      if(id) product = all.find(p=>p.slug===id);
+      if(!product && !isNaN(i)) product = all[i];
+      if(!product && all.length) product = all[0];
+
+      if(settings && settings.contact && settings.contact.phone1){
+        const tel='tel:+995'+settings.contact.phone1.replace(/[^\d]/g,'').replace(/^995/,'');
+        const cb=$('#callBtn'); if(cb) cb.href=tel;
+      }
+
+      if(!product){ $('#notfound').hidden=false; applyLang(lang); return; }
+      $('#content').hidden=false;
+      renderProduct(); renderMore();
+      applyLang(lang);
+    });
+
+    applyLang(lang);
+  })();
+  </script>
+</body>
+</html>

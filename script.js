@@ -183,9 +183,10 @@
   function renderProducts(items) {
     if (!productsGrid || !items || !items.length) return;
     productsGrid.innerHTML = '';
-    items.forEach(p => {
-      const art = document.createElement('article');
+    items.forEach((p, i) => {
+      const art = document.createElement('a');
       art.className = 'pcard';
+      art.href = p.slug ? ('product.html?id=' + encodeURIComponent(p.slug)) : ('product.html?i=' + i);
       art.style.setProperty('--accent', p.color || '#2f7de1');
       const icon = document.createElement('div');
       icon.className = 'pcard__icon';
@@ -196,7 +197,11 @@
       const desc = document.createElement('p');
       setBilingual(desc, p.desc_ka, p.desc_en || p.desc_ka);
       desc.textContent = p.desc_ka || p.desc_en || '';
-      art.append(icon, h3, desc);
+      const more = document.createElement('span');
+      more.className = 'pcard__more';
+      setBilingual(more, 'ვრცლად →', 'Learn more →');
+      more.textContent = 'ვრცლად →';
+      art.append(icon, h3, desc, more);
       productsGrid.appendChild(art);
     });
     applyLang(curLang());
