@@ -53,11 +53,11 @@
   <div class="topbar">
     <div class="container topbar__inner">
       <div class="topbar__contacts">
-        <a href="tel:+995574477447"><span class="ico">✆</span> 574 47 74 47</a>
-        <a href="mailto:Info@matemar.ge"><span class="ico">✉</span> Info@matemar.ge</a>
+        <a class="js-tel1" href="tel:+995574477447"><span class="ico">✆</span> <span class="js-phone1">574 47 74 47</span></a>
+        <a class="js-mail" href="mailto:Info@matemar.ge"><span class="ico">✉</span> <span class="js-email">Info@matemar.ge</span></a>
       </div>
       <div class="topbar__right">
-        <a class="topbar__social" href="https://facebook.com/matemar.ge" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+        <a class="topbar__social js-fb" href="https://facebook.com/matemar.ge" target="_blank" rel="noopener" aria-label="Facebook">f</a>
         <div class="lang" id="lang">
           <button class="lang__btn is-active" data-lang="ka">ქარ</button>
           <span>/</span>
@@ -103,10 +103,10 @@
       <div class="hero__content">
         <span class="eyebrow" data-ka="ქართული წარმოება • 2005 წლიდან" data-en="Georgian manufacturing • since 2005">ქართული წარმოება • 2005 წლიდან</span>
         <h1 class="hero__title">
-          <span data-ka="ფერი, რომელიც" data-en="Color that">ფერი, რომელიც</span>
-          <span class="hero__accent" data-ka="რჩება" data-en="lasts">რჩება</span>
+          <span id="heroTitleMain" data-ka="ფერი, რომელიც" data-en="Color that">ფერი, რომელიც</span>
+          <span class="hero__accent" id="heroTitleAccent" data-ka="რჩება" data-en="lasts">რჩება</span>
         </h1>
-        <p class="hero__lead" data-ka="ინტერიერისა და ექსტერიერის ხარისხიანი საღებავი, გრუნტი და წებოცემენტი — წარმოებული საქართველოში, თანამედროვე დოზირებისა და ფილტრაციის ტექნოლოგიით." data-en="High-quality interior and exterior paints, primers and tile adhesive — produced in Georgia with modern dosing and filtration technology.">
+        <p class="hero__lead" id="heroLead" data-ka="ინტერიერისა და ექსტერიერის ხარისხიანი საღებავი, გრუნტი და წებოცემენტი — წარმოებული საქართველოში, თანამედროვე დოზირებისა და ფილტრაციის ტექნოლოგიით." data-en="High-quality interior and exterior paints, primers and tile adhesive — produced in Georgia with modern dosing and filtration technology.">
           ინტერიერისა და ექსტერიერის ხარისხიანი საღებავი, გრუნტი და წებოცემენტი — წარმოებული საქართველოში, თანამედროვე დოზირებისა და ფილტრაციის ტექნოლოგიით.
         </p>
         <div class="hero__actions">
@@ -183,10 +183,10 @@
       <div class="about__content">
         <span class="kicker" data-ka="ჩვენ შესახებ" data-en="About us">ჩვენ შესახებ</span>
         <h2 class="section__title" data-ka="ქართული ბრენდი, რომელსაც ენდობიან" data-en="A Georgian brand people trust">ქართული ბრენდი, რომელსაც ენდობიან</h2>
-        <p data-ka="ჩვენი საწარმო დაარსდა 2005 წელს. მას შემდეგ მუდმივად ორიენტირებული ვართ განვითარებასა და კომერციულ ზრდაზე. დამფუძნებლისა და მმართველის — ბატონ ზაქარია ბიწაძის — ხელმძღვანელობით კომპანიის აქტივები მრავალჯერ გაიზარდა, რაც ფინანსურ სტაბილურობასა და წარმატებაზე მეტყველებს." data-en="Our enterprise was founded in 2005. Since then we have been consistently focused on development and commercial growth. Under the leadership of founder and managing director Mr. Zakaria Bitsadze, the company's assets have multiplied many times over — a clear sign of financial stability and success.">
+        <p id="aboutP1" data-ka="ჩვენი საწარმო დაარსდა 2005 წელს. მას შემდეგ მუდმივად ორიენტირებული ვართ განვითარებასა და კომერციულ ზრდაზე. დამფუძნებლისა და მმართველის — ბატონ ზაქარია ბიწაძის — ხელმძღვანელობით კომპანიის აქტივები მრავალჯერ გაიზარდა, რაც ფინანსურ სტაბილურობასა და წარმატებაზე მეტყველებს." data-en="Our enterprise was founded in 2005. Since then we have been consistently focused on development and commercial growth. Under the leadership of founder and managing director Mr. Zakaria Bitsadze, the company's assets have multiplied many times over — a clear sign of financial stability and success.">
           ჩვენი საწარმო დაარსდა 2005 წელს. მას შემდეგ მუდმივად ორიენტირებული ვართ განვითარებასა და კომერციულ ზრდაზე. დამფუძნებლისა და მმართველის — ბატონ ზაქარია ბიწაძის — ხელმძღვანელობით კომპანიის აქტივები მრავალჯერ გაიზარდა, რაც ფინანსურ სტაბილურობასა და წარმატებაზე მეტყველებს.
         </p>
-        <p data-ka="2019 წლიდან საწარმო ფუნქციონირებას აგრძელებს როგორც შპს „მათემარ“. ამავე პერიოდში დამონტაჟდა დოზირებისა და ფილტრაციის ახალი დანადგარები, რამაც პროდუქციის ხარისხი ახალ დონეზე აიყვანა." data-en="Since 2019 the enterprise has operated as LLC “Matemar”. During the same period we installed new dosing and filtration equipment, taking product quality to a new level.">
+        <p id="aboutP2" data-ka="2019 წლიდან საწარმო ფუნქციონირებას აგრძელებს როგორც შპს „მათემარ“. ამავე პერიოდში დამონტაჟდა დოზირებისა და ფილტრაციის ახალი დანადგარები, რამაც პროდუქციის ხარისხი ახალ დონეზე აიყვანა." data-en="Since 2019 the enterprise has operated as LLC “Matemar”. During the same period we installed new dosing and filtration equipment, taking product quality to a new level.">
           2019 წლიდან საწარმო ფუნქციონირებას აგრძელებს როგორც შპს „მათემარ“. ამავე პერიოდში დამონტაჟდა დოზირებისა და ფილტრაციის ახალი დანადგარები, რამაც პროდუქციის ხარისხი ახალ დონეზე აიყვანა.
         </p>
 
@@ -194,12 +194,12 @@
           <div class="vv__card">
             <span class="vv__ico">🎯</span>
             <h3 data-ka="ხედვა" data-en="Vision">ხედვა</h3>
-            <p data-ka="„ჩვენი პრინციპია, მომხმარებელი ყოველთვის გვყავდეს ყურადღების ცენტრში.“" data-en="“Our principle is to always keep the customer at the center of attention.”">„ჩვენი პრინციპია, მომხმარებელი ყოველთვის გვყავდეს ყურადღების ცენტრში.“</p>
+            <p id="visionText" data-ka="„ჩვენი პრინციპია, მომხმარებელი ყოველთვის გვყავდეს ყურადღების ცენტრში.“" data-en="“Our principle is to always keep the customer at the center of attention.”">„ჩვენი პრინციპია, მომხმარებელი ყოველთვის გვყავდეს ყურადღების ცენტრში.“</p>
           </div>
           <div class="vv__card">
             <span class="vv__ico">⭐</span>
             <h3 data-ka="ღირებულებები" data-en="Values">ღირებულებები</h3>
-            <p data-ka="„თქვენი წარმატება — ჩვენი წარმატებაა.“ ხარისხიანი პროდუქცია და უმაღლესი მომსახურება ჩვენი მთავარი მიზანია." data-en="“Your success is our success.” Quality products and excellent service are our primary goal.">„თქვენი წარმატება — ჩვენი წარმატებაა.“ ხარისხიანი პროდუქცია და უმაღლესი მომსახურება ჩვენი მთავარი მიზანია.</p>
+            <p id="valuesText" data-ka="„თქვენი წარმატება — ჩვენი წარმატებაა.“ ხარისხიანი პროდუქცია და უმაღლესი მომსახურება ჩვენი მთავარი მიზანია." data-en="“Your success is our success.” Quality products and excellent service are our primary goal.">„თქვენი წარმატება — ჩვენი წარმატებაა.“ ხარისხიანი პროდუქცია და უმაღლესი მომსახურება ჩვენი მთავარი მიზანია.</p>
           </div>
         </div>
       </div>
@@ -215,7 +215,7 @@
         <p class="section__sub" data-ka="სამშენებლო და სარემონტო პროდუქციის სრული ხაზი — წარმოებიდან თქვენს ობიექტამდე." data-en="A full line of construction and renovation products — from our facility straight to your project.">სამშენებლო და სარემონტო პროდუქციის სრული ხაზი — წარმოებიდან თქვენს ობიექტამდე.</p>
       </div>
 
-      <div class="products__grid">
+      <div class="products__grid" id="productsGrid">
         <article class="pcard" style="--accent:#2f7de1">
           <div class="pcard__icon">🖌️</div>
           <h3 data-ka="ინტერიერის საღებავი" data-en="Interior paint">ინტერიერის საღებავი</h3>
@@ -335,28 +335,28 @@
             <span class="contact__ico">📍</span>
             <div>
               <strong data-ka="მისamართი" data-en="Address">მისამართი</strong>
-              <span data-ka="გ. ლორთქიფანიძის ქ. №112 (ყოფ. კაიროს ქ. №36), თბილისი" data-en="G. Lortkipanidze St. №112 (former Cairo St. №36), Tbilisi">გ. ლორთქიფანიძის ქ. №112 (ყოფ. კაიროს ქ. №36), თბილისი</span>
+              <span id="contactAddress" data-ka="გ. ლორთქიფანიძის ქ. №112 (ყოფ. კაიროს ქ. №36), თბილისი" data-en="G. Lortkipanidze St. №112 (former Cairo St. №36), Tbilisi">გ. ლორთქიფანიძის ქ. №112 (ყოფ. კაიროს ქ. №36), თბილისი</span>
             </div>
           </li>
           <li>
             <span class="contact__ico">✆</span>
             <div>
               <strong data-ka="ტელეფონი" data-en="Phone">ტელეფონი</strong>
-              <span><a href="tel:+995574477447">574 47 74 47</a> &nbsp;·&nbsp; <a href="tel:+995574357735">574 35 77 35</a></span>
+              <span><a class="js-tel1" href="tel:+995574477447"><span class="js-phone1">574 47 74 47</span></a> &nbsp;·&nbsp; <a class="js-tel2" href="tel:+995574357735"><span class="js-phone2">574 35 77 35</span></a></span>
             </div>
           </li>
           <li>
             <span class="contact__ico">✉</span>
             <div>
               <strong data-ka="ელ. ფოსტა" data-en="Email">ელ. ფოსტა</strong>
-              <span><a href="mailto:Info@matemar.ge">Info@matemar.ge</a></span>
+              <span><a class="js-mail" href="mailto:Info@matemar.ge"><span class="js-email">Info@matemar.ge</span></a></span>
             </div>
           </li>
           <li>
             <span class="contact__ico">𝐟</span>
             <div>
               <strong data-ka="სოციალური ქსელი" data-en="Social">სოციალური ქსელი</strong>
-              <span><a href="https://facebook.com/matemar.ge" target="_blank" rel="noopener">facebook.com/matemar.ge</a></span>
+              <span><a class="js-fb" href="https://facebook.com/matemar.ge" target="_blank" rel="noopener">facebook.com/matemar.ge</a></span>
             </div>
           </li>
         </ul>
@@ -419,10 +419,10 @@
 
       <div class="footer__col">
         <h4 data-ka="კონტაქტი" data-en="Contact">კონტაქტი</h4>
-        <a href="tel:+995574477447">574 47 74 47</a>
-        <a href="tel:+995574357735">574 35 77 35</a>
-        <a href="mailto:Info@matemar.ge">Info@matemar.ge</a>
-        <a href="https://facebook.com/matemar.ge" target="_blank" rel="noopener">Facebook</a>
+        <a class="js-tel1" href="tel:+995574477447"><span class="js-phone1">574 47 74 47</span></a>
+        <a class="js-tel2" href="tel:+995574357735"><span class="js-phone2">574 35 77 35</span></a>
+        <a class="js-mail" href="mailto:Info@matemar.ge"><span class="js-email">Info@matemar.ge</span></a>
+        <a class="js-fb" href="https://facebook.com/matemar.ge" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
     <div class="footer__bottom">

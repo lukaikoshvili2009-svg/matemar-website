@@ -134,8 +134,23 @@
     });
   }
 
-  /* ---------- Client logos ---------- */
-  const clients = [
+  /* ---------- Reveal helper for dynamically added nodes ---------- */
+  function revealNew(els, stepMs) {
+    if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('is-in')); return; }
+    const io2 = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    els.forEach((el, i) => { el.classList.add('reveal'); el.style.transitionDelay = (i % 8) * (stepMs || 40) + 'ms'; io2.observe(el); });
+  }
+
+  function setBilingual(el, ka, en) {
+    if (!el) return;
+    if (ka != null && ka !== '') el.setAttribute('data-ka', ka);
+    if (en != null && en !== '') el.setAttribute('data-en', en);
+  }
+
+  /* ---------- Client logos (fallback list; overridden by content/clients.json) ---------- */
+  const clientsFallback = [
     ['ანაგი', 'Anagi'], ['სონეტ ქონსთრაქშენ', 'Sonet Construction'],
     ['გალილეო', 'Galileo'], ['დელუქს დეველოპმენტი', 'Deluxe Development'],
     ['დეველოპმენტ ჯორჯია', 'Development Georgia'], ['დრიმ ჰაუსი', 'Dream House'],
@@ -146,27 +161,94 @@
     ['China Metallurgical Group', 'China Metallurgical Group'], ['მშენებელი 7', 'Mshenebeli 7']
   ];
   const logoWrap = $('#clientLogos');
-  if (logoWrap) {
-    clients.forEach(([ka, en]) => {
+  function renderClients(list) {
+    if (!logoWrap || !list || !list.length) return;
+    logoWrap.innerHTML = '';
+    list.forEach(([ka, en]) => {
       const a = document.createElement('div');
       a.className = 'logo';
-      a.innerHTML = `<span data-ka="${ka}" data-en="${en}">${ka}</span>`;
+      const span = document.createElement('span');
+      setBilingual(span, ka, en || ka);
+      span.textContent = ka;
+      a.appendChild(span);
       logoWrap.appendChild(a);
     });
-    // re-apply language so the freshly created logos pick up current language
     applyLang(curLang());
-    // re-register reveal for the new logos
-    if ('IntersectionObserver' in window) {
-      const lio = new IntersectionObserver((entries, obs) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); } });
-      }, { threshold: 0.12 });
-      $$('.logo', logoWrap).forEach((el, i) => {
-        el.classList.add('reveal');
-        el.style.transitionDelay = (i % 8) * 40 + 'ms';
-        lio.observe(el);
-      });
-    }
+    revealNew($$('.logo', logoWrap), 40);
   }
+  renderClients(clientsFallback);
+
+  /* ---------- Products (overridden by content/products.json) ---------- */
+  const productsGrid = $('#productsGrid');
+  function renderProducts(items) {
+    if (!productsGrid || !items || !items.length) return;
+    productsGrid.innerHTML = '';
+    items.forEach(p => {
+      const art = document.createElement('article');
+      art.className = 'pcard';
+      art.style.setProperty('--accent', p.color || '#2f7de1');
+      const icon = document.createElement('div');
+      icon.className = 'pcard__icon';
+      icon.textContent = p.icon || '🎨';
+      const h3 = document.createElement('h3');
+      setBilingual(h3, p.title_ka, p.title_en || p.title_ka);
+      h3.textContent = p.title_ka || p.title_en || '';
+      const desc = document.createElement('p');
+      setBilingual(desc, p.desc_ka, p.desc_en || p.desc_ka);
+      desc.textContent = p.desc_ka || p.desc_en || '';
+      art.append(icon, h3, desc);
+      productsGrid.appendChild(art);
+    });
+    applyLang(curLang());
+    revealNew($$('.pcard', productsGrid), 50);
+  }
+
+  /* ---------- Site texts + contact (overridden by content/settings.json) ---------- */
+  function telHref(num) {
+    const digits = (num || '').replace(/[^\d]/g, '').replace(/^995/, '');
+    return digits ? 'tel:+995' + digits : '#';
+  }
+  function applySettings(s) {
+    if (!s) return;
+    if (s.hero) {
+      setBilingual($('#heroTitleMain'), s.hero.title_ka, s.hero.title_en);
+      setBilingual($('#heroTitleAccent'), s.hero.title_accent_ka, s.hero.title_accent_en);
+      setBilingual($('#heroLead'), s.hero.lead_ka, s.hero.lead_en);
+    }
+    if (s.about) {
+      setBilingual($('#aboutP1'), s.about.p1_ka, s.about.p1_en);
+      setBilingual($('#aboutP2'), s.about.p2_ka, s.about.p2_en);
+      setBilingual($('#visionText'), s.about.vision_ka, s.about.vision_en);
+      setBilingual($('#valuesText'), s.about.values_ka, s.about.values_en);
+    }
+    if (s.contact) {
+      const c = s.contact;
+      if (c.phone1) { $$('.js-phone1').forEach(el => el.textContent = c.phone1); $$('.js-tel1').forEach(a => a.href = telHref(c.phone1)); }
+      if (c.phone2) { $$('.js-phone2').forEach(el => el.textContent = c.phone2); $$('.js-tel2').forEach(a => a.href = telHref(c.phone2)); }
+      if (c.email)  { $$('.js-email').forEach(el => el.textContent = c.email); $$('.js-mail').forEach(a => a.href = 'mailto:' + c.email); }
+      if (c.facebook) $$('.js-fb').forEach(a => a.href = c.facebook);
+      setBilingual($('#contactAddress'), c.address_ka, c.address_en);
+    }
+    applyLang(curLang());
+  }
+
+  /* ---------- Load editable content from /content/*.json ---------- */
+  function loadJSON(path) {
+    return fetch(path, { cache: 'no-cache' })
+      .then(r => (r.ok ? r.json() : null))
+      .catch(() => null);
+  }
+  Promise.all([
+    loadJSON('content/settings.json'),
+    loadJSON('content/products.json'),
+    loadJSON('content/clients.json')
+  ]).then(([settings, products, clientsData]) => {
+    if (settings) applySettings(settings);
+    if (products && Array.isArray(products.items)) renderProducts(products.items);
+    if (clientsData && Array.isArray(clientsData.items) && clientsData.items.length) {
+      renderClients(clientsData.items.map(c => [c.name_ka || c.name_en || '', c.name_en || c.name_ka || '']));
+    }
+  });
 
   /* ---------- Contact form (client-side only) ---------- */
   const form = $('#contactForm');

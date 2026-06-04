@@ -296,6 +296,8 @@ section{position:relative}
 
 /* ===== Responsive ===== */
 @media (max-width:1024px){
+  .nav{gap:1.05rem}
+  .nav__cta{display:none}
   .hero{padding-bottom:5rem;text-align:center}
   .hero__inner{grid-template-columns:1fr;gap:2.2rem}
   .hero__content{order:1}
@@ -321,7 +323,7 @@ section{position:relative}
   .nav.is-open{transform:none}
   .nav a{padding:.85rem .2rem;border-bottom:1px solid var(--line)}
   .nav a:not(.nav__cta)::after{display:none}
-  .nav__cta{margin-top:.7rem;border:none}
+  .nav__cta{margin-top:.7rem;border:none;display:inline-flex}
   .burger{display:flex}
   .bucket{width:168px;height:168px}
   .bucket__mm{font-size:2.7rem}

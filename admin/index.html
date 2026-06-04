@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matemar — ადმინ პანელი</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Georgian:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Noto Sans Georgian","Inter",system-ui,sans-serif;background:radial-gradient(120% 120% at 80% -10%,#1a2f66,#0d1b3e);color:#fff;min-height:100vh;display:grid;place-items:center;padding:1.5rem}
+    .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:22px;padding:2.6rem;max-width:520px;width:100%;text-align:center;box-shadow:0 30px 70px -30px rgba(0,0,0,.6);backdrop-filter:blur(10px)}
+    .mark{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#13265a,#1a2f66);display:grid;place-items:center;margin:0 auto 1.3rem;position:relative}
+    .mark b{font-family:"Inter",sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-1px}
+    .mark i{position:absolute;top:-5px;right:-5px;width:18px;height:18px;border-radius:50%;background:#ff5a3c;border:3px solid #0d1b3e}
+    h1{font-size:1.5rem;font-weight:800;margin-bottom:.5rem}
+    p{color:#c8d2ef;font-size:1rem;line-height:1.6;margin-bottom:1.6rem}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;background:#ff5a3c;color:#fff;font-weight:700;font-family:inherit;padding:1rem 1.8rem;border-radius:999px;text-decoration:none;font-size:1.05rem;box-shadow:0 14px 30px -12px rgba(255,90,60,.8);transition:transform .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .hint{margin-top:1.4rem;font-size:.85rem;color:#8fa0cc;line-height:1.6}
+    .hint a{color:#cdd8f5}
+    .steps{text-align:left;background:rgba(0,0,0,.18);border-radius:14px;padding:1rem 1.2rem;margin-top:1.5rem;font-size:.9rem;color:#dbe4ff;line-height:1.7}
+    .steps b{color:#fff}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="mark"><b>MM</b><i></i></div>
+    <h1>მათემარის ადმინ პანელი</h1>
+    <p>კონტენტის სარედაქტირებლად გადადი PagesCMS-ზე და შედი შენი <b>GitHub</b> ანგარიშით.</p>
+    <a class="btn" id="openBtn" href="https://app.pagescms.org/lukaikoshvili2009-svg/matemar-website/main" target="_blank" rel="noopener">🔓 პანელის გახსნა</a>
+    <div class="steps">
+      <b>პირველად შესვლა:</b><br>
+      1. დააჭირე ღილაკს „პანელის გახსნა"<br>
+      2. შედი GitHub-ით (Sign in with GitHub)<br>
+      3. დაამატე/აირჩიე repo <b>matemar-website</b><br>
+      4. დაარედაქტირე კონტენტი და დააჭირე <b>Save</b> — საიტი ~1 წუთში განახლდება
+    </div>
+    <p class="hint" style="margin-top:1.4rem">თუ ღილაკი არ მუშაობს, გახსენი: <a href="https://app.pagescms.org/" target="_blank" rel="noopener">app.pagescms.org</a></p>
+  </div>
+</body>
+</html>

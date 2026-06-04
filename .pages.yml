@@ -1,0 +1,72 @@
+media:
+  input: content/uploads
+  output: /content/uploads
+
+content:
+  - name: products
+    label: "🎨 პროდუქცია (Products)"
+    type: file
+    path: content/products.json
+    fields:
+      - name: items
+        label: "პროდუქტები"
+        type: object
+        list: true
+        fields:
+          - { name: title_ka, label: "სათაური (ქართ.)", type: string }
+          - { name: title_en, label: "Title (English)", type: string }
+          - { name: desc_ka, label: "აღწერა (ქართ.)", type: text }
+          - { name: desc_en, label: "Description (English)", type: text }
+          - { name: icon, label: "ხატულა / emoji", type: string }
+          - { name: color, label: "ფერი / color (hex, მაგ: #2f7de1)", type: string }
+
+  - name: clients
+    label: "🤝 კლიენტები (Clients)"
+    type: file
+    path: content/clients.json
+    fields:
+      - name: items
+        label: "კლიენტები"
+        type: object
+        list: true
+        fields:
+          - { name: name_ka, label: "სახელი (ქართ.)", type: string }
+          - { name: name_en, label: "Name (English)", type: string }
+
+  - name: settings
+    label: "📝 ტექსტები და კონტაქტი"
+    type: file
+    path: content/settings.json
+    fields:
+      - name: hero
+        label: "მთავარი ბანერი (Hero)"
+        type: object
+        fields:
+          - { name: title_ka, label: "სათაური (ქართ.)", type: string }
+          - { name: title_accent_ka, label: "ხაზგასმული სიტყვა (ქართ.)", type: string }
+          - { name: title_en, label: "Title (English)", type: string }
+          - { name: title_accent_en, label: "Accent word (English)", type: string }
+          - { name: lead_ka, label: "ქვესათაური (ქართ.)", type: text }
+          - { name: lead_en, label: "Subtitle (English)", type: text }
+      - name: about
+        label: "ჩვენ შესახებ / ისტორია"
+        type: object
+        fields:
+          - { name: p1_ka, label: "აბზაცი 1 (ქართ.)", type: text }
+          - { name: p1_en, label: "Paragraph 1 (English)", type: text }
+          - { name: p2_ka, label: "აბზაცი 2 (ქართ.)", type: text }
+          - { name: p2_en, label: "Paragraph 2 (English)", type: text }
+          - { name: vision_ka, label: "ხედვა (ქართ.)", type: text }
+          - { name: vision_en, label: "Vision (English)", type: text }
+          - { name: values_ka, label: "ღირებულებები (ქართ.)", type: text }
+          - { name: values_en, label: "Values (English)", type: text }
+      - name: contact
+        label: "კონტაქტი"
+        type: object
+        fields:
+          - { name: phone1, label: "ტელეფონი 1", type: string }
+          - { name: phone2, label: "ტელეფონი 2", type: string }
+          - { name: email, label: "ელ. ფოსტა", type: string }
+          - { name: address_ka, label: "მისამართი (ქართ.)", type: string }
+          - { name: address_en, label: "Address (English)", type: string }
+          - { name: facebook, label: "Facebook URL", type: string }

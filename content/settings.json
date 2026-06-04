@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "title_ka": "ფერი, რომელიც",
+    "title_accent_ka": "რჩება",
+    "title_en": "Color that",
+    "title_accent_en": "lasts",
+    "lead_ka": "ინტერიერისა და ექსტერიერის ხარისხიანი საღებავი, გრუნტი და წებოცემენტი — წარმოებული საქართველოში, თანამედროვე დოზირებისა და ფილტრაციის ტექნოლოგიით.",
+    "lead_en": "High-quality interior and exterior paints, primers and tile adhesive — produced in Georgia with modern dosing and filtration technology."
+  },
+  "about": {
+    "p1_ka": "ჩვენი საწარმო დაარსდა 2005 წელს. მას შემდეგ მუდმივად ორიენტირებული ვართ განვითარებასა და კომერციულ ზრდაზე. დამფუძნებლისა და მმართველის — ბატონ ზაქარია ბიწაძის — ხელმძღვანელობით კომპანიის აქტივები მრავალჯერ გაიზარდა, რაც ფინანსურ სტაბილურობასა და წარმატებაზე მეტყველებს.",
+    "p1_en": "Our enterprise was founded in 2005. Since then we have been consistently focused on development and commercial growth. Under the leadership of founder and managing director Mr. Zakaria Bitsadze, the company's assets have multiplied many times over — a clear sign of financial stability and success.",
+    "p2_ka": "2019 წლიდან საწარმო ფუნქციონირებას აგრძელებს როგორც შპს „მათემარ“. ამავე პერიოდში დამონტაჟდა დოზირებისა და ფილტრაციის ახალი დანადგარები, რამაც პროდუქციის ხარისხი ახალ დონეზე აიყვანა.",
+    "p2_en": "Since 2019 the enterprise has operated as LLC “Matemar”. During the same period we installed new dosing and filtration equipment, taking product quality to a new level.",
+    "vision_ka": "„ჩვენი პრინციპია, მომხმარებელი ყოველთვის გვყავდეს ყურადღების ცენტრში.“",
+    "vision_en": "“Our principle is to always keep the customer at the center of attention.”",
+    "values_ka": "„თქვენი წარმატება — ჩვენი წარმატებაა.“ ხარისხიანი პროდუქცია და უმაღლესი მომსახურება ჩვენი მთავარი მიზანია.",
+    "values_en": "“Your success is our success.” Quality products and excellent service are our primary goal."
+  },
+  "contact": {
+    "phone1": "574 47 74 47",
+    "phone2": "574 35 77 35",
+    "email": "Info@matemar.ge",
+    "address_ka": "გ. ლორთქიფანიძის ქ. №112 (ყოფ. კაიროს ქ. №36), თბილისი",
+    "address_en": "G. Lortkipanidze St. №112 (former Cairo St. №36), Tbilisi",
+    "facebook": "https://facebook.com/matemar.ge"
+  }
+}
