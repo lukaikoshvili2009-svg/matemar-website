@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ფერების კატალოგი — Monicolor Nova | Matemar</title>
+  <meta name="description" content="მათემარის ფერების სრული კატალოგი — Monicolor Nova. ასობით ელფერი კოდებითა და hex მნიშვნელობებით." />
+  <meta name="theme-color" content="#0d1b3e" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d1b3e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='800' fill='%23fff' text-anchor='middle'%3EMM%3C/text%3E%3Ccircle cx='25' cy='8' r='4' fill='%23ff5a3c'/%3E%3C/svg%3E" />
+  <style>
+    .cat-top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:50}
+    .cat-top__inner{display:flex;align-items:center;justify-content:space-between;height:66px;gap:1rem}
+    .cat-top .brand__text strong{color:#fff}
+    .cat-top .brand__text small{color:#8c9bc6}
+    .cat-top__right{display:flex;align-items:center;gap:1.2rem}
+    .cat-back{color:#cdd8f5;font-weight:600;font-size:.95rem;display:inline-flex;align-items:center;gap:.4rem;transition:color .2s}
+    .cat-back:hover{color:#fff}
+    .cat-lang{display:flex;align-items:center;gap:.35rem;font-weight:700}
+    .cat-lang button{background:none;border:none;color:#8f9fc7;cursor:pointer;font-family:var(--ff);font-size:.9rem;font-weight:700}
+    .cat-lang button.is-active{color:#fff}
+
+    .cat-hero{background:radial-gradient(120% 120% at 80% -20%,#1a2f66,var(--navy));color:#fff;padding:2.6rem 0 2.2rem}
+    .cat-hero h1{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;letter-spacing:-.5px}
+    .cat-hero p{color:#c8d2ef;margin-top:.5rem;max-width:60ch}
+    .cat-tools{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin-top:1.6rem}
+    .cat-search{position:relative;flex:1;min-width:240px;max-width:420px}
+    .cat-search input{width:100%;padding:.85rem 1rem .85rem 2.6rem;border:none;border-radius:999px;font-family:var(--ff);font-size:1rem;background:rgba(255,255,255,.12);color:#fff}
+    .cat-search input::placeholder{color:#aebbe0}
+    .cat-search input:focus{outline:2px solid var(--orange);background:rgba(255,255,255,.18)}
+    .cat-search .ico{position:absolute;left:.95rem;top:50%;transform:translateY(-50%);color:#aebbe0}
+    .cat-count{color:#c8d2ef;font-size:.92rem;font-weight:600;white-space:nowrap}
+
+    .cat-body{padding:2.2rem 0 3rem;background:var(--bg-soft);min-height:50vh}
+    .color-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:14px}
+    .color-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;background:#fff;transition:transform .15s,box-shadow .15s;text-align:left}
+    .color-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .color-card .chip{height:92px;width:100%}
+    .color-card .meta{padding:.55rem .7rem .65rem}
+    .color-card .code{font-weight:700;color:var(--navy);font-size:.92rem;line-height:1.2}
+    .color-card .hex{font-family:var(--ff-num);font-size:.72rem;color:var(--muted);text-transform:uppercase;margin-top:.1rem}
+
+    .cat-empty{text-align:center;color:var(--muted);padding:3rem 1rem;font-size:1.05rem}
+    .cat-loading{text-align:center;color:var(--muted);padding:3rem 1rem}
+
+    .pagination{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;align-items:center;margin:2.6rem 0 .5rem}
+    .pagination button{min-width:42px;height:42px;padding:0 .6rem;border:1px solid var(--line);background:#fff;border-radius:11px;font-family:var(--ff);font-weight:700;color:var(--navy);cursor:pointer;transition:.15s}
+    .pagination button:hover:not(:disabled):not(.active){border-color:var(--orange);color:var(--orange)}
+    .pagination button.active{background:var(--orange);color:#fff;border-color:var(--orange);cursor:default}
+    .pagination button:disabled{opacity:.4;cursor:default}
+    .pagination .ellipsis{min-width:24px;text-align:center;color:var(--muted);font-weight:700}
+
+    .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:.8rem 1.3rem;border-radius:999px;font-weight:600;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.3s;z-index:80}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+    .cat-foot{background:var(--navy);color:#8c9bc6;text-align:center;padding:1.4rem 0;font-size:.85rem}
+    .cat-foot a{color:#cdd8f5}
+
+    @media (max-width:600px){
+      .cat-top__inner{height:auto;min-height:58px;flex-wrap:wrap;gap:.4rem;padding:.5rem 0}
+      .cat-top .brand__text small{display:none}
+      .cat-back span:last-child{display:none}
+      .cat-top__right{gap:1rem}
+      .cat-hero{padding:1.9rem 0 1.7rem}
+      .cat-tools{margin-top:1.2rem;gap:.7rem}
+      .color-grid{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px}
+      .color-card .chip{height:74px}
+      .pagination button{min-width:38px;height:38px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="cat-top">
+    <div class="container cat-top__inner">
+      <a href="index.html" class="brand brand--light" aria-label="Matemar">
+        <span class="brand__mark"><span class="brand__mm">MM</span><span class="brand__dot"></span></span>
+        <span class="brand__text">
+          <strong data-ka="მათემარ" data-en="MATEMAR">მათემარ</strong>
+          <small data-ka="ფერების კატალოგი" data-en="COLOR CATALOG">ფერების კატალოგი</small>
+        </span>
+      </a>
+      <div class="cat-top__right">
+        <a class="cat-back" href="index.html"><span>←</span> <span data-ka="საიტზე დაბრუნება" data-en="Back to site">საიტზე დაბრუნება</span></a>
+        <div class="cat-lang" id="lang">
+          <button class="is-active" data-lang="ka">ქარ</button><span>/</span><button data-lang="en">ENG</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="cat-hero">
+    <div class="container">
+      <h1 data-ka="ფერების კატალოგი" data-en="Color catalog">ფერების კატალოგი</h1>
+      <p data-ka="Monicolor Nova — ასობით ელფერი. იპოვე კოდით ან დააჭირე ფერს მისი hex კოდის დასაკოპირებლად." data-en="Monicolor Nova — hundreds of shades. Search by code or click a color to copy its hex code.">Monicolor Nova — ასობით ელფერი. იპოვე კოდით ან დააჭირე ფერს მისი hex კოდის დასაკოპირებლად.</p>
+      <div class="cat-tools">
+        <div class="cat-search">
+          <span class="ico">🔍</span>
+          <input type="search" id="search" autocomplete="off" placeholder="ძებნა კოდით ან hex-ით (მაგ: F001, #B8D4EA)" data-ph-ka="ძებნა კოდით ან hex-ით (მაგ: F001, #B8D4EA)" data-ph-en="Search by code or hex (e.g. F001, #B8D4EA)" />
+        </div>
+        <div class="cat-count" id="count"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Body -->
+  <section class="cat-body">
+    <div class="container">
+      <div class="color-grid" id="grid"></div>
+      <div class="cat-loading" id="loading" data-ka="ფერები იტვირთება…" data-en="Loading colors…">ფერები იტვირთება…</div>
+      <div class="pagination" id="pagination"></div>
+    </div>
+  </section>
+
+  <footer class="cat-foot">
+    <div class="container">
+      © <span id="year">2026</span> MM — შპს მათემარ ·
+      <a href="index.html" data-ka="მთავარი გვერდი" data-en="Home">მთავარი გვერდი</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+  (function(){
+    'use strict';
+    const $ = s => document.querySelector(s);
+    const STORAGE_KEY = 'matemar-lang';
+    const PER_PAGE = 60;
+    let all = [], filtered = [], page = 1, lang = 'ka';
+
+    const ui = {
+      ka: { count: n => `ნაჩვენებია ${n} ფერი`, copied: hex => `დაკოპირდა ${hex}`, empty: 'ფერი ვერ მოიძებნა', err: 'ფერების ჩატვირთვა ვერ მოხერხდა.' },
+      en: { count: n => `${n} colors`, copied: hex => `Copied ${hex}`, empty: 'No colors found', err: 'Could not load colors.' }
+    };
+
+    /* language */
+    try { lang = localStorage.getItem(STORAGE_KEY) || 'ka'; } catch(e){}
+    function applyLang(l){
+      lang = l; document.documentElement.lang = l;
+      document.querySelectorAll('[data-ka]').forEach(el=>{ const v=el.getAttribute('data-'+l); if(v!=null) el.textContent=v; });
+      const s=$('#search'); if(s){ const ph=s.getAttribute('data-ph-'+l); if(ph) s.placeholder=ph; }
+      document.querySelectorAll('.cat-lang button').forEach(b=>b.classList.toggle('is-active', b.dataset.lang===l));
+      try{ localStorage.setItem(STORAGE_KEY,l); }catch(e){}
+      renderCount(); renderPagination();
+    }
+    document.querySelectorAll('.cat-lang button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+
+    const yr=$('#year'); if(yr) yr.textContent=new Date().getFullYear();
+
+    function renderCount(){ $('#count').textContent = ui[lang].count(filtered.length); }
+
+    function renderGrid(){
+      const grid=$('#grid');
+      const start=(page-1)*PER_PAGE;
+      const slice=filtered.slice(start, start+PER_PAGE);
+      grid.innerHTML='';
+      if(!slice.length){ grid.innerHTML=`<div class="cat-empty" style="grid-column:1/-1">${ui[lang].empty}</div>`; return; }
+      const frag=document.createDocumentFragment();
+      slice.forEach(c=>{
+        const card=document.createElement('button');
+        card.type='button'; card.className='color-card'; card.title=`${c.code} · ${c.hex}`;
+        const chip=document.createElement('div'); chip.className='chip'; chip.style.background=c.hex;
+        const meta=document.createElement('div'); meta.className='meta';
+        const code=document.createElement('div'); code.className='code'; code.textContent=c.code||'—';
+        const hex=document.createElement('div'); hex.className='hex'; hex.textContent=c.hex;
+        meta.append(code,hex); card.append(chip,meta);
+        card.addEventListener('click',()=>copyHex(c.hex));
+        frag.appendChild(card);
+      });
+      grid.appendChild(frag);
+    }
+
+    function renderPagination(){
+      const wrap=$('#pagination');
+      const total=Math.ceil(filtered.length/PER_PAGE)||1;
+      wrap.innerHTML='';
+      if(total<=1) return;
+      const mk=(label,pg,opts={})=>{
+        const b=document.createElement('button');
+        b.textContent=label;
+        if(opts.active) b.classList.add('active');
+        if(opts.disabled) b.disabled=true;
+        if(!opts.disabled && !opts.active) b.addEventListener('click',()=>goto(pg));
+        return b;
+      };
+      wrap.appendChild(mk(lang==='ka'?'‹':'‹', page-1, {disabled: page===1}));
+      const pages=[];
+      const add=n=>pages.push(n);
+      add(1);
+      let lo=Math.max(2,page-2), hi=Math.min(total-1,page+2);
+      if(lo>2) pages.push('…');
+      for(let i=lo;i<=hi;i++) add(i);
+      if(hi<total-1) pages.push('…');
+      if(total>1) add(total);
+      pages.forEach(p=>{
+        if(p==='…'){ const e=document.createElement('span'); e.className='ellipsis'; e.textContent='…'; wrap.appendChild(e); }
+        else wrap.appendChild(mk(String(p), p, {active: p===page}));
+      });
+      wrap.appendChild(mk(lang==='ka'?'›':'›', page+1, {disabled: page===total}));
+    }
+
+    function goto(p){
+      const total=Math.ceil(filtered.length/PER_PAGE)||1;
+      page=Math.min(Math.max(1,p),total);
+      renderGrid(); renderPagination();
+      document.querySelector('.cat-body').scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    let toastTimer;
+    function copyHex(hex){
+      const show=()=>{ const t=$('#toast'); t.textContent=ui[lang].copied(hex); t.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),1600); };
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(hex).then(show).catch(show); }
+      else show();
+    }
+
+    $('#search').addEventListener('input', e=>{
+      const q=e.target.value.trim().toLowerCase().replace(/^#/,'');
+      filtered = !q ? all : all.filter(c =>
+        (c.code||'').toLowerCase().includes(q) || (c.hex||'').toLowerCase().replace('#','').includes(q));
+      page=1; renderCount(); renderGrid(); renderPagination();
+    });
+
+    /* load data */
+    fetch('content/colors.json', {cache:'no-cache'})
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        $('#loading').style.display='none';
+        all = (data && Array.isArray(data.items)) ? data.items.filter(c=>c && c.hex) : [];
+        filtered = all.slice();
+        applyLang(lang);
+        renderGrid(); renderPagination(); renderCount();
+        if(!all.length){ $('#grid').innerHTML = `<div class="cat-empty" style="grid-column:1/-1">${ui[lang].err}</div>`; }
+      })
+      .catch(()=>{
+        $('#loading').style.display='none';
+        $('#grid').innerHTML = `<div class="cat-empty" style="grid-column:1/-1">${ui[lang].err}</div>`;
+      });
+
+    applyLang(lang);
+  })();
+  </script>
+</body>
+</html>
