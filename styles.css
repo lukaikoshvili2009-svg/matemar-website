@@ -98,6 +98,18 @@ section{position:relative}
 .nav a:not(.nav__cta):hover::after{width:100%}
 .nav__cta{color:#fff}
 
+/* Products dropdown */
+.nav__dd{position:relative;display:inline-flex;align-items:center;gap:.25rem}
+.nav__caret{font-size:.6rem;color:var(--muted);transition:transform .2s;pointer-events:none}
+.nav__dd:hover .nav__caret{transform:rotate(180deg);color:var(--orange)}
+.nav__dd::after{content:"";position:absolute;top:100%;left:-10px;right:-10px;height:18px}
+.nav__menu{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(8px);min-width:240px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:.5rem;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:60}
+.nav__dd:hover .nav__menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.nav__menu a{display:flex;align-items:center;gap:.65rem;padding:.6rem .8rem;border-radius:9px;font-size:.95rem;color:var(--ink);font-weight:600;white-space:nowrap}
+.nav__menu a::after{display:none!important}
+.nav__menu a:hover{background:var(--bg-soft);color:var(--orange)}
+.nav__menu .dot{width:13px;height:13px;border-radius:4px;flex:none}
+
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
 .burger span{width:26px;height:2.5px;background:var(--navy);border-radius:2px;transition:.3s}
 .burger.is-open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
@@ -326,6 +338,11 @@ section{position:relative}
   .nav a{padding:.85rem .2rem;border-bottom:1px solid var(--line)}
   .nav a:not(.nav__cta)::after{display:none}
   .nav__cta{margin-top:.7rem;border:none;display:inline-flex}
+  .nav__dd{display:block;width:100%}
+  .nav__caret{display:none}
+  .nav__dd::after{display:none}
+  .nav__menu{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;border:none;background:transparent;padding:0 0 0 1rem;min-width:0}
+  .nav__menu a{padding:.7rem .2rem;border-bottom:1px solid var(--line)}
   .burger{display:flex}
   .bucket{width:168px;height:168px}
   .bucket__mm{font-size:2.7rem}

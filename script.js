@@ -206,6 +206,25 @@
     });
     applyLang(curLang());
     revealNew($$('.pcard', productsGrid), 50);
+    renderProductsMenu(items);
+  }
+
+  /* ---------- Products dropdown menu in the nav ---------- */
+  function renderProductsMenu(items) {
+    const menu = document.getElementById('productsMenu');
+    if (!menu || !items || !items.length) return;
+    menu.innerHTML = '';
+    items.forEach((p, i) => {
+      const a = document.createElement('a');
+      a.href = p.slug ? ('product.html?id=' + encodeURIComponent(p.slug)) : ('product.html?i=' + i);
+      const dot = document.createElement('span'); dot.className = 'dot'; dot.style.background = p.color || '#2f7de1';
+      const t = document.createElement('span');
+      setBilingual(t, p.title_ka, p.title_en || p.title_ka);
+      t.textContent = p.title_ka || p.title_en || '';
+      a.append(dot, t);
+      menu.appendChild(a);
+    });
+    applyLang(curLang());
   }
 
   /* ---------- Site texts + contact (overridden by content/settings.json) ---------- */
