@@ -56,6 +56,13 @@
     .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:.8rem 1.3rem;border-radius:999px;font-weight:600;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.3s;z-index:80}
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
+    .side-nav{position:fixed;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;background:var(--navy);color:#fff;border:none;font-size:1.7rem;line-height:1;cursor:pointer;box-shadow:var(--shadow);z-index:70;display:grid;place-items:center;opacity:.9;transition:background .2s,transform .2s,opacity .2s}
+    .side-nav:hover{background:var(--orange);transform:translateY(-50%) scale(1.08);opacity:1}
+    .side-nav--prev{left:20px}
+    .side-nav--next{right:20px}
+    .side-nav:disabled{opacity:0;pointer-events:none}
+    @media (max-width:640px){ .side-nav{width:42px;height:42px;font-size:1.35rem} .side-nav--prev{left:6px} .side-nav--next{right:6px} }
+
     .cat-foot{background:var(--navy);color:#8c9bc6;text-align:center;padding:1.4rem 0;font-size:.85rem}
     .cat-foot a{color:#cdd8f5}
 
@@ -124,6 +131,9 @@
     </div>
   </footer>
 
+  <button class="side-nav side-nav--prev" id="prevBtn" aria-label="Previous page">←</button>
+  <button class="side-nav side-nav--next" id="nextBtn" aria-label="Next page">→</button>
+
   <div class="toast" id="toast"></div>
 
   <script>
@@ -179,6 +189,9 @@
     function renderPagination(){
       const wrap=$('#pagination');
       const total=Math.ceil(filtered.length/PER_PAGE)||1;
+      const _pv=document.getElementById('prevBtn'), _nx=document.getElementById('nextBtn');
+      if(_pv) _pv.disabled = page<=1;
+      if(_nx) _nx.disabled = page>=total;
       wrap.innerHTML='';
       if(total<=1) return;
       const mk=(label,pg,opts={})=>{
@@ -224,6 +237,14 @@
       filtered = !q ? all : all.filter(c =>
         (c.code||'').toLowerCase().includes(q) || (c.hex||'').toLowerCase().replace('#','').includes(q));
       page=1; renderCount(); renderGrid(); renderPagination();
+    });
+
+    document.getElementById('prevBtn').addEventListener('click',()=>goto(page-1));
+    document.getElementById('nextBtn').addEventListener('click',()=>goto(page+1));
+    document.addEventListener('keydown',e=>{
+      if(e.target && (e.target.tagName==='INPUT' || e.target.tagName==='TEXTAREA')) return;
+      if(e.key==='ArrowLeft') goto(page-1);
+      else if(e.key==='ArrowRight') goto(page+1);
     });
 
     /* load data */
