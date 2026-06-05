@@ -58,6 +58,8 @@
     .sub-card .sub-in{padding:1.1rem 1.2rem}
     .sub-card h3{font-size:1.08rem;color:var(--navy);margin-bottom:.4rem}
     .sub-card p{font-size:.93rem;color:var(--muted);line-height:1.6}
+    .sub-buy{display:flex;align-items:center;justify-content:center;gap:.45rem;margin-top:1rem;width:100%;background:var(--orange);color:#fff;font-weight:700;padding:.65rem 1rem;border-radius:10px;font-size:.95rem;transition:background .2s,transform .2s}
+    .sub-buy:hover{background:var(--orange-d);transform:translateY(-1px)}
 
     .pd-loading{text-align:center;color:var(--muted);padding:4rem 1rem}
     .pd-foot{background:var(--navy);color:#8c9bc6;text-align:center;padding:1.4rem 0;font-size:.85rem}
@@ -142,7 +144,7 @@
     'use strict';
     const $ = s => document.querySelector(s);
     const STORAGE_KEY = 'matemar-lang';
-    let lang='ka', product=null, all=[];
+    let lang='ka', product=null, all=[], telHref='tel:+995574477447';
 
     try { lang = localStorage.getItem(STORAGE_KEY) || 'ka'; } catch(e){}
     function applyLang(l){
@@ -190,7 +192,9 @@
         const inn=document.createElement('div'); inn.className='sub-in';
         const h=document.createElement('h3'); h.textContent=T(s,'name');
         const p=document.createElement('p'); p.textContent=T(s,'desc');
-        inn.append(h,p); card.append(img,inn); grid.appendChild(card);
+        const buy=document.createElement('a'); buy.className='sub-buy'; buy.href=telHref;
+        buy.textContent = (lang==='en' ? '✆ Buy' : '✆ შეიძენთ');
+        inn.append(h,p,buy); card.append(img,inn); grid.appendChild(card);
       });
     }
 
@@ -220,9 +224,9 @@
       if(!product && all.length) product = all[0];
 
       if(settings && settings.contact && settings.contact.phone1){
-        const tel='tel:+995'+settings.contact.phone1.replace(/[^\d]/g,'').replace(/^995/,'');
-        const cb=$('#callBtn'); if(cb) cb.href=tel;
+        telHref='tel:+995'+settings.contact.phone1.replace(/[^\d]/g,'').replace(/^995/,'');
       }
+      const cb=$('#callBtn'); if(cb) cb.href=telHref;
 
       if(!product){ $('#notfound').hidden=false; applyLang(lang); return; }
       $('#content').hidden=false;
