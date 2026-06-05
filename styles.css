@@ -87,6 +87,8 @@ section{position:relative}
 .brand__mark{position:relative;width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,var(--navy),var(--navy-2));display:grid;place-items:center;box-shadow:var(--shadow-sm)}
 .brand__mm{color:#fff;font-family:var(--ff-num);font-weight:800;font-size:1.15rem;letter-spacing:-1px}
 .brand__dot{position:absolute;top:-3px;right:-3px;width:15px;height:15px;border-radius:50%;background:var(--orange);border:2.5px solid #fff;box-shadow:0 0 0 2px rgba(255,90,60,.25)}
+.brand__logo{height:46px;width:auto;display:block}
+.brand--light .brand__logo{filter:brightness(0) invert(1)}
 .brand__text{display:flex;flex-direction:column;line-height:1.05}
 .brand__text strong{font-size:1.12rem;font-weight:800;color:var(--navy);letter-spacing:.2px}
 .brand__text small{font-size:.62rem;font-weight:600;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase}
