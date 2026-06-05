@@ -10,7 +10,11 @@
       "icon": "🖌️",
       "color": "#2f7de1",
       "slug": "interior-paint",
-      "subproducts": []
+      "subproducts": [
+        {
+          "name_ka": "საღებავი სამი"
+        }
+      ]
     },
     {
       "title_ka": "ექსტერიერის საღებავი",
@@ -21,8 +25,7 @@
       "body_en": "Façade paint engineered for long service outdoors. It withstands sun, rain, frost and temperature swings, resists fading and keeps its color for years. Its breathable structure protects walls from moisture and mold.",
       "icon": "🏠",
       "color": "#1aa05a",
-      "slug": "exterior-paint",
-      "subproducts": []
+      "slug": "exterior-paint"
     },
     {
       "title_ka": "გრუნტი",
@@ -39,22 +42,19 @@
           "name_ka": "ღრმად შემავალი გრუნტი",
           "name_en": "Deep-penetrating primer",
           "desc_ka": "ამაგრებს ფოროვან ზედაპირს და აუმჯობესებს საღებავის შეჭიდულობას. შიდა და გარე გამოყენებისთვის.",
-          "desc_en": "Strengthens porous surfaces and improves paint adhesion. For interior and exterior use.",
-          "image": ""
+          "desc_en": "Strengthens porous surfaces and improves paint adhesion. For interior and exterior use."
         },
         {
           "name_ka": "ბეტონ-კონტაქტი",
           "name_en": "Concrete-contact primer",
           "desc_ka": "გლუვ, არაშემწოვ ზედაპირებზე (ბეტონი) საფარის მყარი შეჭიდულობისთვის.",
-          "desc_en": "Creates a strong grip on smooth, non-absorbent surfaces such as concrete.",
-          "image": ""
+          "desc_en": "Creates a strong grip on smooth, non-absorbent surfaces such as concrete."
         },
         {
           "name_ka": "ფასადის გრუნტი",
           "name_en": "Façade primer",
           "desc_ka": "ამინდმედეგი გრუნტი გარე კედლებისთვის — ამცირებს საღებავის ხარჯს და ზრდის გამძლეობას.",
-          "desc_en": "Weather-resistant primer for exterior walls — reduces paint usage and boosts durability.",
-          "image": ""
+          "desc_en": "Weather-resistant primer for exterior walls — reduces paint usage and boosts durability."
         }
       ]
     },
@@ -67,8 +67,7 @@
       "body_en": "Reliable adhesive cement for ceramic tiles, porcelain and natural stone. High bonding strength and elasticity ensure a solid fix on floors and walls, indoors and outdoors.",
       "icon": "🧱",
       "color": "#ff5a3c",
-      "slug": "tile-adhesive",
-      "subproducts": []
+      "slug": "tile-adhesive"
     },
     {
       "title_ka": "ფერების კატალოგი",
@@ -79,8 +78,7 @@
       "body_en": "Hundreds of ready shades and a precise tinting system that lets us mix almost any color you want. Browse the full palette on our colors page and pick the perfect tone for your space.",
       "icon": "🎨",
       "color": "#8a4dd6",
-      "slug": "color-catalog",
-      "subproducts": []
+      "slug": "color-catalog"
     },
     {
       "title_ka": "სხვა პროდუქცია",
@@ -91,8 +89,7 @@
       "body_en": "Auxiliary construction materials and solutions — fillers, antiseptics and other products your project needs. From a single supplier, with a quality guarantee. Contact us for specific requirements.",
       "icon": "📦",
       "color": "#0fb5ba",
-      "slug": "other-products",
-      "subproducts": []
+      "slug": "other-products"
     }
   ]
 }
