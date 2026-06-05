@@ -13,7 +13,8 @@
       "subproducts": [
         {
           "name_ka": "საღებავი სამი",
-          "name_en": "paint three"
+          "name_en": "paint three",
+          "desc_ka": "საღებავი სამი არის კარგი საღებავი"
         }
       ]
     },
