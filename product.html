@@ -48,6 +48,17 @@
     .pd-mini .mini-ico{font-size:1.5rem}
     .pd-mini .mini-t{font-weight:700;color:var(--navy);font-size:.95rem}
 
+    .pd-sub{margin-top:3rem}
+    .pd-sub h2{font-size:1.4rem;color:var(--navy);font-weight:800;margin-bottom:1.3rem}
+    .pd-sub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+    .sub-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
+    .sub-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .sub-card .sub-img{height:160px;display:grid;place-items:center;font-size:3rem}
+    .sub-card .sub-img img{width:100%;height:100%;object-fit:cover}
+    .sub-card .sub-in{padding:1.1rem 1.2rem}
+    .sub-card h3{font-size:1.08rem;color:var(--navy);margin-bottom:.4rem}
+    .sub-card p{font-size:.93rem;color:var(--muted);line-height:1.6}
+
     .pd-loading{text-align:center;color:var(--muted);padding:4rem 1rem}
     .pd-foot{background:var(--navy);color:#8c9bc6;text-align:center;padding:1.4rem 0;font-size:.85rem}
     .pd-foot a{color:#cdd8f5}
@@ -58,6 +69,7 @@
       .cat-back span:last-child{display:none}
       .pd-grid{grid-template-columns:1fr;gap:1.6rem}
       .pd-more-grid{grid-template-columns:repeat(2,1fr)}
+      .pd-sub-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -101,6 +113,11 @@
               <a class="btn btn--ghost" href="index.html#contact" data-ka="შეთავაზების მიღება" data-en="Get a quote">შეთავაზების მიღება</a>
             </div>
           </div>
+        </div>
+
+        <div class="pd-sub" id="subWrap" hidden>
+          <h2 data-ka="ამ კატეგორიის პროდუქცია" data-en="Products in this category">ამ კატეგორიის პროდუქცია</h2>
+          <div class="pd-sub-grid" id="subGrid"></div>
         </div>
 
         <div class="pd-more">
@@ -156,6 +173,25 @@
       } else {
         visual.innerHTML = '<span class="ico">'+(product.icon||'🎨')+'</span>';
       }
+      renderSub();
+    }
+
+    function renderSub(){
+      const wrap=document.getElementById('subWrap'), grid=document.getElementById('subGrid');
+      if(!wrap||!grid) return;
+      const subs = (product && Array.isArray(product.subproducts)) ? product.subproducts.filter(s=>s && T(s,'name')) : [];
+      if(!subs.length){ wrap.hidden=true; return; }
+      wrap.hidden=false; grid.innerHTML='';
+      subs.forEach(s=>{
+        const card=document.createElement('div'); card.className='sub-card';
+        const img=document.createElement('div'); img.className='sub-img';
+        if(s.image){ const im=document.createElement('img'); im.src=s.image; im.alt=T(s,'name'); img.appendChild(im); }
+        else { img.style.background='linear-gradient(150deg,'+(product.color||'#2f7de1')+'22,#ffffff)'; img.textContent=product.icon||'🎨'; }
+        const inn=document.createElement('div'); inn.className='sub-in';
+        const h=document.createElement('h3'); h.textContent=T(s,'name');
+        const p=document.createElement('p'); p.textContent=T(s,'desc');
+        inn.append(h,p); card.append(img,inn); grid.appendChild(card);
+      });
     }
 
     function renderMore(){

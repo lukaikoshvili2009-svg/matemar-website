@@ -23,6 +23,16 @@ content:
           - { name: icon, label: "ხატულა / emoji", type: string }
           - { name: color, label: "ფერი / color (hex, მაგ: #2f7de1)", type: string }
           - { name: slug, label: "URL slug (მაგ: interior-paint)", type: string }
+          - name: subproducts
+            label: "შიდა პროდუქტები (ამ კატეგორიაში)"
+            type: object
+            list: true
+            fields:
+              - { name: name_ka, label: "დასახელება (ქართ.)", type: string }
+              - { name: name_en, label: "Name (English)", type: string }
+              - { name: desc_ka, label: "აღწერა (ქართ.)", type: text }
+              - { name: desc_en, label: "Description (English)", type: text }
+              - { name: image, label: "სურათი", type: image }
 
   - name: clients
     label: "🤝 კლიენტები (Clients)"
