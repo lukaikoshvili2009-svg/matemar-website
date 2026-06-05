@@ -38,27 +38,7 @@
       "body_en": "A deep-penetrating primer that strengthens the surface and improves the adhesion of paint or adhesive. It reduces material consumption and ensures an even, durable finish. Suitable for both interior and exterior work.",
       "icon": "🪣",
       "color": "#f4b400",
-      "slug": "primer",
-      "subproducts": [
-        {
-          "name_ka": "ღრმად შემავალი გრუნტი",
-          "name_en": "Deep-penetrating primer",
-          "desc_ka": "ამაგრებს ფოროვან ზედაპირს და აუმჯობესებს საღებავის შეჭიდულობას. შიდა და გარე გამოყენებისთვის.",
-          "desc_en": "Strengthens porous surfaces and improves paint adhesion. For interior and exterior use."
-        },
-        {
-          "name_ka": "ბეტონ-კონტაქტი",
-          "name_en": "Concrete-contact primer",
-          "desc_ka": "გლუვ, არაშემწოვ ზედაპირებზე (ბეტონი) საფარის მყარი შეჭიდულობისთვის.",
-          "desc_en": "Creates a strong grip on smooth, non-absorbent surfaces such as concrete."
-        },
-        {
-          "name_ka": "ფასადის გრუნტი",
-          "name_en": "Façade primer",
-          "desc_ka": "ამინდმედეგი გრუნტი გარე კედლებისთვის — ამცირებს საღებავის ხარჯს და ზრდის გამძლეობას.",
-          "desc_en": "Weather-resistant primer for exterior walls — reduces paint usage and boosts durability."
-        }
-      ]
+      "slug": "primer"
     },
     {
       "title_ka": "წებოცემენტი",
