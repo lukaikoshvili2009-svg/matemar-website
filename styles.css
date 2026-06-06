@@ -91,7 +91,7 @@ section{position:relative}
 .brand--light .brand__logo{filter:brightness(0) invert(1)}
 .brand__text{display:flex;flex-direction:column;line-height:1.05}
 .brand__text strong{font-size:1.12rem;font-weight:800;color:var(--navy);letter-spacing:.2px}
-.brand__text small{font-size:.62rem;font-weight:600;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase}
+.brand__text small{display:none}
 
 .nav{display:flex;align-items:center;gap:1.6rem}
 .nav a{font-weight:600;color:var(--ink);position:relative;font-size:.97rem;transition:color .2s}
