@@ -91,6 +91,46 @@ content:
     type: file
     path: content/texts.json
     fields:
+      - name: nav
+        label: "მენიუ (ნავიგაცია)"
+        type: object
+        fields:
+          - name: about
+            label: "ჩვენ შესახებ"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: products
+            label: "პროდუქცია"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: colors
+            label: "ფერები"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: clients
+            label: "კლიენტები"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: contact
+            label: "კონტაქტი"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: cta
+            label: "ღილაკი (შეთავაზების მიღება)"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
       - name: hero
         label: "ჰერო"
         type: object

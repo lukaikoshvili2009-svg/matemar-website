@@ -1,4 +1,12 @@
 {
+  "nav": {
+    "about": { "ka": "ჩვენ შესახებ", "en": "About" },
+    "products": { "ka": "პროდუქცია", "en": "Products" },
+    "colors": { "ka": "ფერები", "en": "Colors" },
+    "clients": { "ka": "კლიენტები", "en": "Clients" },
+    "contact": { "ka": "კონტაქტი", "en": "Contact" },
+    "cta": { "ka": "შეთავაზების მიღება", "en": "Get a quote" }
+  },
   "hero": {
     "eyebrow": { "ka": "ქართული წარმოება • 2005 წლიდან", "en": "Georgian manufacturing • since 2005" }
   },
