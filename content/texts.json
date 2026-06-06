@@ -1,0 +1,61 @@
+{
+  "hero": {
+    "eyebrow": { "ka": "ქართული წარმოება • 2005 წლიდან", "en": "Georgian manufacturing • since 2005" }
+  },
+  "stats": {
+    "l1": { "ka": "დაარსების წელი", "en": "Established" },
+    "l2": { "ka": "წლიანი გამოცდილება", "en": "Years of experience" },
+    "l3": { "ka": "კორპორატიული კლიენტი", "en": "Corporate clients" }
+  },
+  "trust": {
+    "i1": { "ka": "🏭 ქართული წარმოება", "en": "🏭 Made in Georgia" },
+    "i2": { "ka": "🧪 თანამედროვე ფილტრაცია", "en": "🧪 Modern filtration" },
+    "i3": { "ka": "🎨 ფერების ფართო პალიტრა", "en": "🎨 Wide color palette" },
+    "i4": { "ka": "🤝 სანდო პარტნიორი", "en": "🤝 Trusted partner" }
+  },
+  "about": {
+    "kicker": { "ka": "ჩვენ შესახებ", "en": "About us" },
+    "title": { "ka": "ქართული ბრენდი, რომელსაც ენდობიან", "en": "A Georgian brand people trust" },
+    "visionTitle": { "ka": "ხედვა", "en": "Vision" },
+    "valuesTitle": { "ka": "ღირებულებები", "en": "Values" }
+  },
+  "products": {
+    "kicker": { "ka": "პროდუქცია", "en": "Products" },
+    "title": { "ka": "ყველაფერი თქვენი ზედაპირისთვის", "en": "Everything for your surface" },
+    "sub": { "ka": "სამშენებლო და სარემონტო პროდუქციის სრული ხაზი — წარმოებიდან თქვენს ობიექტამდე.", "en": "A full line of construction and renovation products — from our facility straight to your project." }
+  },
+  "colors": {
+    "kicker": { "ka": "ფერების კატალოგი", "en": "Color catalog" },
+    "title": { "ka": "აირჩიე შენი ფერი", "en": "Pick your color" },
+    "sub": { "ka": "ზუსტი დოზირების სისტემა საშუალებას გვაძლევს მოვამზადოთ თითქმის ნებისმიერი ელფერი.", "en": "Our precise tinting system lets us produce almost any shade you can imagine." },
+    "note": { "ka": "* ეკრანზე ფერები შესაძლოა ოდნავ განსხვავდებოდეს რეალურისგან. ზუსტი ელფერისთვის მოგვმართეთ.", "en": "* On-screen colors may vary slightly from the real shade. Contact us for an exact match." },
+    "btn": { "ka": "სრული ფერების კატალოგი →", "en": "Full color catalog →" }
+  },
+  "process": {
+    "kicker": { "ka": "როგორ ვმუშაობთ", "en": "How we work" },
+    "title": { "ka": "წარმოებიდან ობიექტამდე", "en": "From production to your site" },
+    "s1t": { "ka": "კონსულტაცია", "en": "Consultation" },
+    "s1d": { "ka": "ვისმენთ თქვენს საჭიროებას და ვირჩევთ შესაფერის პროდუქტს.", "en": "We listen to your needs and choose the right product." },
+    "s2t": { "ka": "ფერის შერჩევა", "en": "Color selection" },
+    "s2d": { "ka": "ვამზადებთ ზუსტ ელფერს დოზირების სისტემით.", "en": "We mix the exact shade with our tinting system." },
+    "s3t": { "ka": "წარმოება", "en": "Production" },
+    "s3d": { "ka": "ვაწარმოებთ თანამედროვე ფილტრაციის დანადგარებით.", "en": "We produce using modern filtration equipment." },
+    "s4t": { "ka": "მიწოდება", "en": "Delivery" },
+    "s4d": { "ka": "ვაწვდით პროდუქციას დროულად, პირდაპირ თქვენს ობიექტზე.", "en": "We deliver on time, straight to your project." }
+  },
+  "clients": {
+    "kicker": { "ka": "კლიენტები & პარტნიორები", "en": "Clients & partners" },
+    "title": { "ka": "გვენდობიან წამყვანი კომპანიები", "en": "Trusted by leading companies" },
+    "sub": { "ka": "ვთანამშრომლობთ საქართველოს მსხვილ სამშენებლო, სადეველოპერო და სავაჭრო კომპანიებთან.", "en": "We work with Georgia's largest construction, development and retail companies." }
+  },
+  "cta": {
+    "title": { "ka": "მზად ხართ თქვენი პროექტისთვის?", "en": "Ready to start your project?" },
+    "text": { "ka": "მიიღეთ ფასის შეთავაზება და კონსულტაცია ჩვენი გუნდისგან.", "en": "Get a price quote and a consultation from our team." },
+    "btn": { "ka": "დარეკეთ ახლავე", "en": "Call now" }
+  },
+  "contact": {
+    "kicker": { "ka": "კონტაქტი", "en": "Contact" },
+    "title": { "ka": "დაგვიკავშირდით", "en": "Get in touch" },
+    "formHeading": { "ka": "გამოგვიგზავნეთ შეტყობინება", "en": "Send us a message" }
+  }
+}

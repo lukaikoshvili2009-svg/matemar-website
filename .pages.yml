@@ -85,3 +85,283 @@ content:
           - { name: address_ka, label: "მისამართი (ქართ.)", type: string }
           - { name: address_en, label: "Address (English)", type: string }
           - { name: facebook, label: "Facebook URL", type: string }
+
+  - name: texts
+    label: "🔤 საიტის ტექსტები (სათაურები და ა.შ.)"
+    type: file
+    path: content/texts.json
+    fields:
+      - name: hero
+        label: "ჰერო"
+        type: object
+        fields:
+          - name: eyebrow
+            label: "პატარა წარწერა (badge)"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+      - name: stats
+        label: "სტატისტიკა"
+        type: object
+        fields:
+          - name: l1
+            label: "ლეიბლი 1 (წელი)"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: l2
+            label: "ლეიბლი 2 (გამოცდილება)"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: l3
+            label: "ლეიბლი 3 (კლიენტები)"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+      - name: trust
+        label: "ნდობის ზოლი"
+        type: object
+        fields:
+          - name: i1
+            label: "პუნქტი 1"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: i2
+            label: "პუნქტი 2"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: i3
+            label: "პუნქტი 3"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: i4
+            label: "პუნქტი 4"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+      - name: about
+        label: "ჩვენ შესახებ — სათაურები"
+        type: object
+        fields:
+          - name: kicker
+            label: "სათაურაკი"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: title
+            label: "სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: visionTitle
+            label: "ხედვის სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: valuesTitle
+            label: "ღირებულებების სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+      - name: products
+        label: "პროდუქცია — სათაურები"
+        type: object
+        fields:
+          - name: kicker
+            label: "სათაურაკი"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: title
+            label: "სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: sub
+            label: "ქვესათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: text }
+              - { name: en, label: "Eng.", type: text }
+      - name: colors
+        label: "ფერები — სათაურები"
+        type: object
+        fields:
+          - name: kicker
+            label: "სათაურაკი"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: title
+            label: "სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: sub
+            label: "ქვესათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: text }
+              - { name: en, label: "Eng.", type: text }
+          - name: note
+            label: "შენიშვნა"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: text }
+              - { name: en, label: "Eng.", type: text }
+          - name: btn
+            label: "ღილაკი"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+      - name: process
+        label: "როგორ ვმუშაობთ"
+        type: object
+        fields:
+          - name: kicker
+            label: "სათაურაკი"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: title
+            label: "სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: s1t
+            label: "ნაბიჯი 1 — სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: s1d
+            label: "ნაბიჯი 1 — აღწერა"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: text }
+              - { name: en, label: "Eng.", type: text }
+          - name: s2t
+            label: "ნაბიჯი 2 — სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: s2d
+            label: "ნაბიჯი 2 — აღწერა"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: text }
+              - { name: en, label: "Eng.", type: text }
+          - name: s3t
+            label: "ნაბიჯი 3 — სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: s3d
+            label: "ნაბიჯი 3 — აღწერა"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: text }
+              - { name: en, label: "Eng.", type: text }
+          - name: s4t
+            label: "ნაბიჯი 4 — სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: s4d
+            label: "ნაბიჯი 4 — აღწერა"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: text }
+              - { name: en, label: "Eng.", type: text }
+      - name: clients
+        label: "კლიენტები — სათაურები"
+        type: object
+        fields:
+          - name: kicker
+            label: "სათაურაკი"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: title
+            label: "სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: sub
+            label: "ქვესათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: text }
+              - { name: en, label: "Eng.", type: text }
+      - name: cta
+        label: "მოწოდების ბლოკი (CTA)"
+        type: object
+        fields:
+          - name: title
+            label: "სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: text
+            label: "ტექსტი"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: text }
+              - { name: en, label: "Eng.", type: text }
+          - name: btn
+            label: "ღილაკი"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+      - name: contact
+        label: "კონტაქტი — სათაურები"
+        type: object
+        fields:
+          - name: kicker
+            label: "სათაურაკი"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: title
+            label: "სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: formHeading
+            label: "ფორმის სათაური"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }

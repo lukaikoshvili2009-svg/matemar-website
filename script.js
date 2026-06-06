@@ -261,6 +261,18 @@
     applyLang(curLang());
   }
 
+  /* ---------- Editable site texts (from /content/texts.json) ---------- */
+  function applyTexts(t) {
+    if (!t) return;
+    $$('[data-key]').forEach(el => {
+      const parts = el.getAttribute('data-key').split('.');
+      let v = t;
+      for (const p of parts) { v = v && v[p]; }
+      if (v && (v.ka != null || v.en != null)) setBilingual(el, v.ka, v.en);
+    });
+    applyLang(curLang());
+  }
+
   /* ---------- Load editable content from /content/*.json ---------- */
   function loadJSON(path) {
     return fetch(path, { cache: 'no-cache' })
@@ -270,8 +282,10 @@
   Promise.all([
     loadJSON('content/settings.json'),
     loadJSON('content/products.json'),
-    loadJSON('content/clients.json')
-  ]).then(([settings, products, clientsData]) => {
+    loadJSON('content/clients.json'),
+    loadJSON('content/texts.json')
+  ]).then(([settings, products, clientsData, texts]) => {
+    if (texts) applyTexts(texts);
     if (settings) applySettings(settings);
     if (products && Array.isArray(products.items)) renderProducts(products.items);
     if (clientsData && Array.isArray(clientsData.items) && clientsData.items.length) {
