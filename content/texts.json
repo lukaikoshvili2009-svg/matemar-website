@@ -11,8 +11,11 @@
     "eyebrow": { "ka": "ქართული წარმოება • 2005 წლიდან", "en": "Georgian manufacturing • since 2005" }
   },
   "stats": {
+    "v1": { "ka": "2005", "en": "2005" },
     "l1": { "ka": "დაარსების წელი", "en": "Established" },
+    "v2": { "ka": "20+", "en": "20+" },
     "l2": { "ka": "წლიანი გამოცდილება", "en": "Years of experience" },
+    "v3": { "ka": "50+", "en": "50+" },
     "l3": { "ka": "კორპორატიული კლიენტი", "en": "Corporate clients" }
   },
   "trust": {

@@ -145,6 +145,24 @@ content:
         label: "სტატისტიკა"
         type: object
         fields:
+          - name: v1
+            label: "ციფრი 1 (მაგ: 2005)"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: v2
+            label: "ციფრი 2 (მაგ: 20+)"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
+          - name: v3
+            label: "ციფრი 3 (მაგ: 50+)"
+            type: object
+            fields:
+              - { name: ka, label: "ქართ.", type: string }
+              - { name: en, label: "Eng.", type: string }
           - name: l1
             label: "ლეიბლი 1 (წელი)"
             type: object
