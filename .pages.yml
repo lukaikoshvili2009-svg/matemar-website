@@ -62,7 +62,6 @@ content:
           - { name: title_accent_en, label: "Accent word (English)", type: string }
           - { name: lead_ka, label: "ქვესათაური (ქართ.)", type: text }
           - { name: lead_en, label: "Subtitle (English)", type: text }
-          - { name: image, label: "ბანერის ფოტო (სლაიდერი) — სურვილისამებრ", type: image }
       - name: about
         label: "ჩვენ შესახებ / ისტორია"
         type: object
