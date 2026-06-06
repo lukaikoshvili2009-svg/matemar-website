@@ -9,19 +9,7 @@
       "body_en": "Premium water-based paint for interior walls and ceilings. It creates a pleasant matte finish, resists scuffing and is easy to wash. Practically odorless, fast-drying and eco-friendly — safe for homes and offices. Available in a wide palette through our precise tinting system.",
       "icon": "🖌️",
       "color": "#2f7de1",
-      "slug": "interior-paint",
-      "subproducts": [
-        {
-          "name_ka": "საღებავი სამი",
-          "name_en": "paint three",
-          "desc_ka": "საღებავი სამი არის კარგი საღებავი",
-          "image": "/content/uploads/0028139_25-l-saghebavi-interieris-nacadi-alpina_600.jpeg"
-        },
-        {
-          "name_ka": "საღებავი 4",
-          "image": "/content/uploads/download2.jpg"
-        }
-      ]
+      "slug": "interior-paint"
     },
     {
       "title_ka": "ექსტერიერის საღებავი",
