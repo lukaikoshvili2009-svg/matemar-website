@@ -238,6 +238,11 @@
       setBilingual($('#heroTitleMain'), s.hero.title_ka, s.hero.title_en);
       setBilingual($('#heroTitleAccent'), s.hero.title_accent_ka, s.hero.title_accent_en);
       setBilingual($('#heroLead'), s.hero.lead_ka, s.hero.lead_en);
+      const heroImg = $('#heroImage'), heroVis = $('#heroVisual');
+      if (heroImg && heroVis) {
+        if (s.hero.image) { heroImg.src = s.hero.image; heroVis.classList.add('has-photo'); }
+        else { heroVis.classList.remove('has-photo'); }
+      }
     }
     if (s.about) {
       setBilingual($('#aboutP1'), s.about.p1_ka, s.about.p1_en);
