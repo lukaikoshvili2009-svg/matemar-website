@@ -238,10 +238,17 @@
       setBilingual($('#heroTitleMain'), s.hero.title_ka, s.hero.title_en);
       setBilingual($('#heroTitleAccent'), s.hero.title_accent_ka, s.hero.title_accent_en);
       setBilingual($('#heroLead'), s.hero.lead_ka, s.hero.lead_en);
-      const heroImg = $('#heroImage'), heroVis = $('#heroVisual');
-      if (heroImg && heroVis) {
-        if (s.hero.image) { heroImg.src = s.hero.image; heroVis.classList.add('has-photo'); }
-        else { heroVis.classList.remove('has-photo'); }
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        if (s.hero.image) {
+          hero.style.backgroundImage = "linear-gradient(rgba(11,21,48,.74), rgba(11,21,48,.86)), url('" + s.hero.image + "')";
+          hero.style.backgroundSize = 'cover';
+          hero.style.backgroundPosition = 'center';
+          hero.classList.add('has-bg');
+        } else {
+          hero.style.backgroundImage = '';
+          hero.classList.remove('has-bg');
+        }
       }
     }
     if (s.about) {
