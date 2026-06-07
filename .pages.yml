@@ -35,17 +35,18 @@ content:
               - { name: image, label: "სურათი", type: image }
 
   - name: clients
-    label: "🤝 კლიენტები (Clients)"
+    label: "🖼️ გალერეა (Gallery)"
     type: file
     path: content/clients.json
     fields:
       - name: items
-        label: "კლიენტები"
+        label: "გალერეა"
         type: object
         list: true
         fields:
           - { name: name_ka, label: "სახელი (ქართ.)", type: string }
           - { name: name_en, label: "Name (English)", type: string }
+          - { name: image, label: "ფოტო", type: image }
 
   - name: settings
     label: "📝 ტექსტები და კონტაქტი"

@@ -143,34 +143,47 @@
     if (en != null && en !== '') el.setAttribute('data-en', en);
   }
 
-  /* ---------- Client logos (fallback list; overridden by content/clients.json) ---------- */
-  const clientsFallback = [
-    ['ანაგი', 'Anagi'], ['სონეტ ქონსთრაქშენ', 'Sonet Construction'],
-    ['გალილეო', 'Galileo'], ['დელუქს დეველოპმენტი', 'Deluxe Development'],
-    ['დეველოპმენტ ჯორჯია', 'Development Georgia'], ['დრიმ ჰაუსი', 'Dream House'],
-    ['ბაბილონი', 'Babiloni'], ['ანდრია დეველოპმენტი', 'Andria Development'],
-    ['ფრესკო გრუპი', 'Fresco Group'], ['ფორო ბეტონი', 'Foro Beton'],
-    ['სასტუმრო გუდაური ინ', 'Gudauri Inn Hotel'], ['სასტუმრო ათუ', 'ATU Hotel'],
-    ['გეო გრინი', 'Geo Green'], ['ვესადენი', 'Vesadeni'],
-    ['China Metallurgical Group', 'China Metallurgical Group'], ['მშენებელი 7', 'Mshenebeli 7']
+  /* ---------- Gallery (name on top, photo below; overridden by content/clients.json) ---------- */
+  const galleryFallback = [
+    {name_ka:'ანაგი',name_en:'Anagi'},{name_ka:'სონეტ ქონსთრაქშენ',name_en:'Sonet Construction'},
+    {name_ka:'გალილეო',name_en:'Galileo'},{name_ka:'დელუქს დეველოპმენტი',name_en:'Deluxe Development'},
+    {name_ka:'დეველოპმენტ ჯორჯია',name_en:'Development Georgia'},{name_ka:'დრიმ ჰაუსი',name_en:'Dream House'},
+    {name_ka:'ბაბილონი',name_en:'Babiloni'},{name_ka:'ანდრია დეველოპმენტი',name_en:'Andria Development'},
+    {name_ka:'ფრესკო გრუპი',name_en:'Fresco Group'},{name_ka:'ფორო ბეტონი',name_en:'Foro Beton'},
+    {name_ka:'სასტუმრო გუდაური ინ',name_en:'Gudauri Inn Hotel'},{name_ka:'სასტუმრო ათუ',name_en:'ATU Hotel'},
+    {name_ka:'გეო გრინი',name_en:'Geo Green'},{name_ka:'ვესადენი',name_en:'Vesadeni'},
+    {name_ka:'China Metallurgical Group',name_en:'China Metallurgical Group'},{name_ka:'მშენებელი 7',name_en:'Mshenebeli 7'}
   ];
-  const logoWrap = $('#clientLogos');
-  function renderClients(list) {
-    if (!logoWrap || !list || !list.length) return;
-    logoWrap.innerHTML = '';
-    list.forEach(([ka, en]) => {
-      const a = document.createElement('div');
-      a.className = 'logo';
-      const span = document.createElement('span');
-      setBilingual(span, ka, en || ka);
-      span.textContent = ka;
-      a.appendChild(span);
-      logoWrap.appendChild(a);
+  const galleryWrap = $('#clientLogos');
+  function renderGallery(list) {
+    if (!galleryWrap || !list || !list.length) return;
+    galleryWrap.innerHTML = '';
+    list.forEach(item => {
+      const ka = item.name_ka || item.name_en || '';
+      const en = item.name_en || item.name_ka || '';
+      const card = document.createElement('div');
+      card.className = 'gcard';
+      const name = document.createElement('div');
+      name.className = 'gcard__name';
+      setBilingual(name, ka, en);
+      name.textContent = ka;
+      const photo = document.createElement('div');
+      photo.className = 'gcard__photo';
+      if (item.image) {
+        const im = document.createElement('img');
+        im.src = item.image; im.alt = ka; im.loading = 'lazy';
+        photo.appendChild(im);
+      } else {
+        photo.classList.add('is-empty');
+        photo.textContent = (ka || '•').trim().charAt(0);
+      }
+      card.append(name, photo);
+      galleryWrap.appendChild(card);
     });
     applyLang(curLang());
-    revealNew($$('.logo', logoWrap), 40);
+    revealNew($$('.gcard', galleryWrap), 40);
   }
-  renderClients(clientsFallback);
+  renderGallery(galleryFallback);
 
   /* ---------- Products (overridden by content/products.json) ---------- */
   const productsGrid = $('#productsGrid');
@@ -203,20 +216,39 @@
     renderProductsMenu(items);
   }
 
-  /* ---------- Products dropdown menu in the nav ---------- */
+  /* ---------- Products dropdown menu in the nav (with sub-product flyout) ---------- */
   function renderProductsMenu(items) {
     const menu = document.getElementById('productsMenu');
     if (!menu || !items || !items.length) return;
     menu.innerHTML = '';
     items.forEach((p, i) => {
+      if (p.slug === 'color-catalog') return; // colors are handled by the separate "ფერები" link
+      const href = p.slug ? ('product.html?id=' + encodeURIComponent(p.slug)) : ('product.html?i=' + i);
+      const subs = Array.isArray(p.subproducts) ? p.subproducts.filter(s => s && (s.name_ka || s.name_en)) : [];
+      const item = document.createElement('div');
+      item.className = 'nav__mitem' + (subs.length ? ' has-sub' : '');
       const a = document.createElement('a');
-      a.href = p.slug ? ('product.html?id=' + encodeURIComponent(p.slug)) : ('product.html?i=' + i);
+      a.href = href;
       const dot = document.createElement('span'); dot.className = 'dot'; dot.style.background = p.color || '#2f7de1';
       const t = document.createElement('span');
       setBilingual(t, p.title_ka, p.title_en || p.title_ka);
       t.textContent = p.title_ka || p.title_en || '';
       a.append(dot, t);
-      menu.appendChild(a);
+      if (subs.length) { const car = document.createElement('span'); car.className = 'nav__mcaret'; car.textContent = '›'; a.appendChild(car); }
+      item.appendChild(a);
+      if (subs.length) {
+        const fly = document.createElement('div'); fly.className = 'nav__flyout';
+        subs.forEach(s => {
+          const sa = document.createElement('a'); sa.href = href;
+          const st = document.createElement('span');
+          setBilingual(st, s.name_ka, s.name_en || s.name_ka);
+          st.textContent = s.name_ka || s.name_en || '';
+          sa.appendChild(st);
+          fly.appendChild(sa);
+        });
+        item.appendChild(fly);
+      }
+      menu.appendChild(item);
     });
     applyLang(curLang());
   }
@@ -290,9 +322,7 @@
     if (texts) applyTexts(texts);
     if (settings) applySettings(settings);
     if (products && Array.isArray(products.items)) renderProducts(products.items);
-    if (clientsData && Array.isArray(clientsData.items) && clientsData.items.length) {
-      renderClients(clientsData.items.map(c => [c.name_ka || c.name_en || '', c.name_en || c.name_ka || '']));
-    }
+    if (clientsData && Array.isArray(clientsData.items) && clientsData.items.length) renderGallery(clientsData.items);
     if (colorsData && Array.isArray(colorsData.items) && colorsData.items.length) {
       const items = colorsData.items, n = 24, step = Math.max(1, Math.floor(items.length / n)), sample = [];
       for (let i = 0; i < items.length && sample.length < n; i += step) sample.push(items[i]);

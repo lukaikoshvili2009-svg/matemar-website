@@ -111,6 +111,11 @@ section{position:relative}
 .nav__menu a::after{display:none!important}
 .nav__menu a:hover{background:var(--bg-soft);color:var(--orange)}
 .nav__menu .dot{width:13px;height:13px;border-radius:4px;flex:none}
+.nav__mitem{position:relative}
+.nav__mcaret{margin-left:auto;color:var(--muted);font-weight:700}
+.nav__flyout{position:absolute;left:calc(100% + 8px);top:-.5rem;min-width:210px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:.5rem;opacity:0;visibility:hidden;transform:translateX(8px);transition:opacity .18s,transform .18s;z-index:70}
+.nav__mitem.has-sub::after{content:"";position:absolute;left:100%;top:0;width:14px;height:100%}
+.nav__mitem.has-sub:hover .nav__flyout{opacity:1;visibility:visible;transform:none}
 
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
 .burger span{width:26px;height:2.5px;background:var(--navy);border-radius:2px;transition:.3s}
@@ -239,6 +244,13 @@ section{position:relative}
 
 /* ===== Clients ===== */
 .clients{background:var(--bg)}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem}
+.gcard{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
+.gcard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.gcard__name{padding:.85rem 1rem;font-weight:700;color:var(--navy);text-align:center;font-size:1.02rem}
+.gcard__photo{height:170px;background:#f6f8fc;display:flex;align-items:center;justify-content:center;padding:12px}
+.gcard__photo img{max-width:100%;max-height:100%;object-fit:contain}
+.gcard__photo.is-empty{font-size:2.6rem;font-weight:800;color:#c7d0e0}
 .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
 .logo{
   display:flex;align-items:center;justify-content:center;text-align:center;
@@ -349,6 +361,9 @@ section{position:relative}
   .nav__dd::after{display:none}
   .nav__menu{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;border:none;background:transparent;padding:0 0 0 1rem;min-width:0}
   .nav__menu a{padding:.7rem .2rem;border-bottom:1px solid var(--line)}
+  .nav__flyout{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:transparent;padding:0 0 0 1.2rem;min-width:0}
+  .nav__mcaret{display:none}
+  .nav__mitem.has-sub::after{display:none}
   .burger{display:flex}
   .bucket{width:168px;height:168px}
   .bucket__mm{font-size:2.7rem}

@@ -13,8 +13,8 @@
       "en": "Color catalog"
     },
     "clients": {
-      "ka": "კლიენტები",
-      "en": "Clients"
+      "ka": "გალერეა",
+      "en": "Gallery"
     },
     "contact": {
       "ka": "კონტაქტი",
@@ -173,12 +173,12 @@
   },
   "clients": {
     "kicker": {
-      "ka": "კლიენტები & პარტნიორები",
-      "en": "Clients & partners"
+      "ka": "გალერეა",
+      "en": "Gallery"
     },
     "title": {
-      "ka": "გვენდობიან წამყვანი კომპანიები",
-      "en": "Trusted by leading companies"
+      "ka": "ჩვენი გალერეა",
+      "en": "Our gallery"
     },
     "sub": {
       "ka": "ვთანამშრომლობთ საქართველოს მსხვილ სამშენებლო, სადეველოპერო და სავაჭრო კომპანიებთან.",
