@@ -78,6 +78,7 @@ content:
         label: "ჩვენ შესახებ / ისტორია"
         type: object
         fields:
+          - { name: image, label: "ფოტო („ჩვენ შესახებ\" ბლოკისთვის) — სურვილისამებრ", type: image }
           - { name: p1_ka, label: "აბზაცი 1 (ქართ.)", type: text }
           - { name: p1_en, label: "Paragraph 1 (English)", type: text }
           - { name: p2_ka, label: "აბზაცი 2 (ქართ.)", type: text }

@@ -343,6 +343,16 @@
       setBilingual($('#aboutP2'), s.about.p2_ka, s.about.p2_en);
       setBilingual($('#visionText'), s.about.vision_ka, s.about.vision_en);
       setBilingual($('#valuesText'), s.about.values_ka, s.about.values_en);
+      const aboutImg = document.getElementById('aboutImg');
+      if (aboutImg) {
+        if (s.about.image) {
+          aboutImg.style.backgroundImage = "url('" + s.about.image + "')";
+          aboutImg.classList.add('has-photo');
+        } else {
+          aboutImg.style.backgroundImage = '';
+          aboutImg.classList.remove('has-photo');
+        }
+      }
     }
     if (s.contact) {
       const c = s.contact;
