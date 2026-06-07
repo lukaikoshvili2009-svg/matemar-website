@@ -1,20 +1,69 @@
 {
   "items": [
-    { "name_ka": "ანაგი", "name_en": "Anagi" },
-    { "name_ka": "სონეტ ქონსთრაქშენ", "name_en": "Sonet Construction" },
-    { "name_ka": "გალილეო", "name_en": "Galileo" },
-    { "name_ka": "დელუქს დეველოპმენტი", "name_en": "Deluxe Development" },
-    { "name_ka": "დეველოპმენტ ჯორჯია", "name_en": "Development Georgia" },
-    { "name_ka": "დრიმ ჰაუსი", "name_en": "Dream House" },
-    { "name_ka": "ბაბილონი", "name_en": "Babiloni" },
-    { "name_ka": "ანდრია დეველოპმენტი", "name_en": "Andria Development" },
-    { "name_ka": "ფრესკო გრუპი", "name_en": "Fresco Group" },
-    { "name_ka": "ფორო ბეტონი", "name_en": "Foro Beton" },
-    { "name_ka": "სასტუმრო გუდაური ინ", "name_en": "Gudauri Inn Hotel" },
-    { "name_ka": "სასტუმრო ათუ", "name_en": "ATU Hotel" },
-    { "name_ka": "გეო გრინი", "name_en": "Geo Green" },
-    { "name_ka": "ვესადენი", "name_en": "Vesadeni" },
-    { "name_ka": "China Metallurgical Group", "name_en": "China Metallurgical Group" },
-    { "name_ka": "მშენებელი 7", "name_en": "Mshenebeli 7" }
+    {
+      "name_ka": "ანაგი",
+      "name_en": "Anagi"
+    },
+    {
+      "name_ka": "სონეტ ქონსთრაქშენ",
+      "name_en": "Sonet Construction"
+    },
+    {
+      "name_ka": "გალილეო",
+      "name_en": "Galileo"
+    },
+    {
+      "name_ka": "დელუქს დეველოპმენტი",
+      "name_en": "Deluxe Development"
+    },
+    {
+      "name_ka": "დეველოპმენტ ჯორჯია",
+      "name_en": "Development Georgia"
+    },
+    {
+      "name_ka": "დრიმ ჰაუსი",
+      "name_en": "Dream House",
+      "image": "/content/uploads/დრეამ ჰაუსი.jpg"
+    },
+    {
+      "name_ka": "ბაბილონი",
+      "name_en": "Babiloni"
+    },
+    {
+      "name_ka": "ანდრია დეველოპმენტი",
+      "name_en": "Andria Development"
+    },
+    {
+      "name_ka": "ფრესკო გრუპი",
+      "name_en": "Fresco Group"
+    },
+    {
+      "name_ka": "ფორო ბეტონი",
+      "name_en": "Foro Beton"
+    },
+    {
+      "name_ka": "სასტუმრო გუდაური ინ",
+      "name_en": "Gudauri Inn Hotel"
+    },
+    {
+      "name_ka": "სასტუმრო ათუ",
+      "name_en": "ATU Hotel"
+    },
+    {
+      "name_ka": "გეო გრინი",
+      "name_en": "Geo Green"
+    },
+    {
+      "name_ka": "ვესადენი",
+      "name_en": "Vesadeni"
+    },
+    {
+      "name_ka": "China Metallurgical Group",
+      "name_en": "China Metallurgical Group"
+    },
+    {
+      "name_ka": "მშენებელი 7",
+      "name_en": "Mshenebeli 7"
+    }
   ]
 }
