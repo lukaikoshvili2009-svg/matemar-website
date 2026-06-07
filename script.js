@@ -108,31 +108,25 @@
     counters.forEach(c => cio.observe(c));
   }
 
-  /* ---------- Color swatches ---------- */
-  const palette = [
-    ['#f7f3ea', 'Cream'], ['#e9d9c0', 'Sand'], ['#f4b400', 'Amber'], ['#ff7a45', 'Coral'],
-    ['#ff5a3c', 'Sunset'], ['#e8492c', 'Brick'], ['#c0392b', 'Crimson'], ['#8a4dd6', 'Violet'],
-    ['#5b3aa3', 'Indigo'], ['#2f7de1', 'Azure'], ['#1f5fb5', 'Cobalt'], ['#0fb5ba', 'Teal'],
-    ['#0a8f88', 'Pine'], ['#1aa05a', 'Emerald'], ['#7bbf3a', 'Lime'], ['#d8e0c4', 'Sage'],
-    ['#cfd8e6', 'Mist'], ['#9aa7bd', 'Slate'], ['#54637d', 'Steel'], ['#2b3a55', 'Navy'],
-    ['#16213e', 'Ink'], ['#3a2e28', 'Espresso'], ['#7a5c45', 'Walnut'], ['#d4a373', 'Caramel']
-  ];
-  const isLight = (hex) => {
-    const c = hex.replace('#', '');
-    const r = parseInt(c.substr(0, 2), 16), g = parseInt(c.substr(2, 2), 16), b = parseInt(c.substr(4, 2), 16);
-    return (r * 299 + g * 587 + b * 114) / 1000 > 150;
-  };
+  /* ---------- Color swatches (homepage — plain colors, no codes) ---------- */
+  const palette = ['#f7f3ea','#e9d9c0','#f4b400','#ff7a45','#ff5a3c','#e8492c','#c0392b','#8a4dd6','#5b3aa3','#2f7de1','#1f5fb5','#0fb5ba','#0a8f88','#1aa05a','#7bbf3a','#d8e0c4','#cfd8e6','#9aa7bd','#54637d','#2b3a55','#16213e','#3a2e28','#7a5c45','#d4a373'];
   const swatchWrap = $('#swatches');
-  if (swatchWrap) {
-    palette.forEach(([hex, name]) => {
+  function renderHomeSwatches(list) {
+    if (!swatchWrap || !list || !list.length) return;
+    swatchWrap.innerHTML = '';
+    const frag = document.createDocumentFragment();
+    list.forEach(c => {
+      const hex = typeof c === 'string' ? c : (c && c.hex);
+      if (!hex) return;
       const d = document.createElement('div');
-      d.className = 'swatch' + (isLight(hex) ? ' is-light' : '');
+      d.className = 'swatch';
       d.style.background = hex;
-      d.title = name + ' ' + hex;
-      d.innerHTML = `<span>${hex.toUpperCase()}</span>`;
-      swatchWrap.appendChild(d);
+      d.title = hex;
+      frag.appendChild(d);
     });
+    swatchWrap.appendChild(frag);
   }
+  renderHomeSwatches(palette);
 
   /* ---------- Reveal helper for dynamically added nodes ---------- */
   function revealNew(els, stepMs) {
@@ -290,13 +284,19 @@
     loadJSON('content/settings.json'),
     loadJSON('content/products.json'),
     loadJSON('content/clients.json'),
-    loadJSON('content/texts.json')
-  ]).then(([settings, products, clientsData, texts]) => {
+    loadJSON('content/texts.json'),
+    loadJSON('content/colors.json')
+  ]).then(([settings, products, clientsData, texts, colorsData]) => {
     if (texts) applyTexts(texts);
     if (settings) applySettings(settings);
     if (products && Array.isArray(products.items)) renderProducts(products.items);
     if (clientsData && Array.isArray(clientsData.items) && clientsData.items.length) {
       renderClients(clientsData.items.map(c => [c.name_ka || c.name_en || '', c.name_en || c.name_ka || '']));
+    }
+    if (colorsData && Array.isArray(colorsData.items) && colorsData.items.length) {
+      const items = colorsData.items, n = 24, step = Math.max(1, Math.floor(items.length / n)), sample = [];
+      for (let i = 0; i < items.length && sample.length < n; i += step) sample.push(items[i]);
+      renderHomeSwatches(sample);
     }
   });
 
