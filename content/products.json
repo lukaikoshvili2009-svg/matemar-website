@@ -9,7 +9,12 @@
       "body_en": "Reliable adhesive cement for ceramic tiles, porcelain and natural stone. High bonding strength and elasticity ensure a solid fix on floors and walls, indoors and outdoors.",
       "icon": "🧱",
       "color": "#ff5a3c",
-      "slug": "tile-adhesive"
+      "slug": "tile-adhesive",
+      "subproducts": [
+        {
+          "name_ka": "წებოცემენტი ეცონომი"
+        }
+      ]
     },
     {
       "title_ka": "ინტერიერის საღებავი",
