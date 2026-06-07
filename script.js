@@ -281,6 +281,16 @@
       }
     });
     let cur = 0;
+    const titleEl = document.querySelector('.hero__title');
+    const leadEl = document.getElementById('heroLead');
+    function animateIn() {
+      [titleEl, leadEl].forEach(el => {
+        if (!el) return;
+        el.style.animation = 'none';
+        void el.offsetWidth;
+        el.style.animation = 'heroFadeUp .6s ease both';
+      });
+    }
     function paint(i) {
       [...wrap.children].forEach((c, k) => c.classList.toggle('active', k === i));
       if (dots) [...dots.children].forEach((c, k) => c.classList.toggle('active', k === i));
@@ -288,6 +298,7 @@
       setBilingual($('#heroTitleMain'), sl.title_ka, sl.title_en || sl.title_ka);
       setBilingual($('#heroLead'), sl.lead_ka, sl.lead_en || sl.lead_ka);
       applyLang(curLang());
+      animateIn();
     }
     function go(i) { cur = (i + slides.length) % slides.length; paint(cur); restart(); }
     function restart() { if (heroTimer) clearTimeout(heroTimer); if (slides.length > 1) heroTimer = setTimeout(() => go(cur + 1), 5500); }
