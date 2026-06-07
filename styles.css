@@ -1,8 +1,3 @@
-/* ===== Fonts (Helvetica Neue LT GEO — same as ecomix.ge) ===== */
-@font-face{font-family:'HNeueGEO';src:url('fonts/HelveticaNeueLTGEO-45Light_0.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:'HNeueGEO';src:url('fonts/HelveticaNeueLTGEO-55Roman_0.otf') format('opentype');font-weight:400 500;font-style:normal;font-display:swap}
-@font-face{font-family:'HNeueGEO';src:url('fonts/HelveticaNeueLTGEO-75Bold_0.otf') format('opentype');font-weight:600 900;font-style:normal;font-display:swap}
-
 /* ===== Design tokens ===== */
 :root{
   --navy:#0d1b3e;
@@ -24,7 +19,7 @@
   --shadow:0 18px 50px -22px rgba(13,27,62,.45);
   --shadow-sm:0 8px 24px -14px rgba(13,27,62,.4);
   --container:1180px;
-  --ff:'HNeueGEO',"Noto Sans Georgian","Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --ff:"Noto Sans Georgian","Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   --ff-num:"Inter","Noto Sans Georgian",sans-serif;
 }
 
