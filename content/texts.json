@@ -59,20 +59,20 @@
   },
   "trust": {
     "i1": {
-      "ka": "🏭 ქართული წარმოება",
-      "en": "🏭 Made in Georgia"
+      "ka": "ქართული წარმოება",
+      "en": "Made in Georgia"
     },
     "i2": {
-      "ka": "🧪 თანამედროვე ფილტრაცია",
-      "en": "🧪 Modern filtration"
+      "ka": "თანამედროვე ფილტრაცია",
+      "en": "Modern filtration"
     },
     "i3": {
-      "ka": " ფერების ფართო პალიტრა",
-      "en": " Wide color palette"
+      "ka": "ფერების ფართო პალიტრა",
+      "en": "Wide color palette"
     },
     "i4": {
-      "ka": "🤝 სანდო პარტნიორი",
-      "en": "🤝 Trusted partner"
+      "ka": "სანდო პარტნიორი",
+      "en": "Trusted partner"
     }
   },
   "about": {
