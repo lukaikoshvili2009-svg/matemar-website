@@ -1,6 +1,17 @@
 {
   "items": [
     {
+      "title_ka": "წებოცემენტი",
+      "title_en": "Tile adhesive",
+      "desc_ka": "ფილისა და კერამიკული ფილების საიმედო წებოცემენტი მაღალი შეჭიდულობით.",
+      "desc_en": "Reliable adhesive cement for tiles and ceramics with strong bonding strength.",
+      "body_ka": "საიმედო წებოცემენტი კერამიკული ფილების, კერამოგრანიტისა და ბუნებრივი ქვის მოსაპირკეთებლად. მაღალი შეჭიდულობა და ელასტიურობა უზრუნველყოფს მყარ დაფიქსირებას იატაკსა და კედელზე, შიდა და გარე პირობებში.",
+      "body_en": "Reliable adhesive cement for ceramic tiles, porcelain and natural stone. High bonding strength and elasticity ensure a solid fix on floors and walls, indoors and outdoors.",
+      "icon": "🧱",
+      "color": "#ff5a3c",
+      "slug": "tile-adhesive"
+    },
+    {
       "title_ka": "ინტერიერის საღებავი",
       "title_en": "Interior paint",
       "desc_ka": "წყალდისპერსიული საღებავი კედლებისა და ჭერისთვის — სუნთქვადი, უსუნო და ადვილად რეცხვადი.",
@@ -31,17 +42,6 @@
       "icon": "🪣",
       "color": "#f4b400",
       "slug": "primer"
-    },
-    {
-      "title_ka": "წებოცემენტი",
-      "title_en": "Tile adhesive",
-      "desc_ka": "ფილისა და კერამიკული ფილების საიმედო წებოცემენტი მაღალი შეჭიდულობით.",
-      "desc_en": "Reliable adhesive cement for tiles and ceramics with strong bonding strength.",
-      "body_ka": "საიმედო წებოცემენტი კერამიკული ფილების, კერამოგრანიტისა და ბუნებრივი ქვის მოსაპირკეთებლად. მაღალი შეჭიდულობა და ელასტიურობა უზრუნველყოფს მყარ დაფიქსირებას იატაკსა და კედელზე, შიდა და გარე პირობებში.",
-      "body_en": "Reliable adhesive cement for ceramic tiles, porcelain and natural stone. High bonding strength and elasticity ensure a solid fix on floors and walls, indoors and outdoors.",
-      "icon": "🧱",
-      "color": "#ff5a3c",
-      "slug": "tile-adhesive"
     },
     {
       "title_ka": "ფერების კატალოგი",
