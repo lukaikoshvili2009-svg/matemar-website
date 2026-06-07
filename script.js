@@ -195,9 +195,6 @@
       art.className = 'pcard';
       art.href = p.slug ? ('product.html?id=' + encodeURIComponent(p.slug)) : ('product.html?i=' + i);
       art.style.setProperty('--accent', p.color || '#2f7de1');
-      const icon = document.createElement('div');
-      icon.className = 'pcard__icon';
-      icon.textContent = p.icon || '🎨';
       const h3 = document.createElement('h3');
       setBilingual(h3, p.title_ka, p.title_en || p.title_ka);
       h3.textContent = p.title_ka || p.title_en || '';
@@ -206,9 +203,9 @@
       desc.textContent = p.desc_ka || p.desc_en || '';
       const more = document.createElement('span');
       more.className = 'pcard__more';
-      setBilingual(more, 'ვრცლად →', 'Learn more →');
-      more.textContent = 'ვრცლად →';
-      art.append(icon, h3, desc, more);
+      setBilingual(more, 'ვრცლად', 'Learn more');
+      more.textContent = 'ვრცლად';
+      art.append(h3, desc, more);
       productsGrid.appendChild(art);
     });
     applyLang(curLang());

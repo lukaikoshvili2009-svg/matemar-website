@@ -43,7 +43,6 @@
       "desc_en": "Façade paint with high weather resistance — built for sun, rain and temperature swings.",
       "body_ka": "ფასადის საღებავი, რომელიც შექმნილია ღია ცის ქვეშ ხანგრძლივი მსახურებისთვის. მდგრადია მზის, წვიმის, ყინვისა და ტემპერატურის ცვალებადობის მიმართ, არ ხუნდება და ინარჩუნებს ფერს წლების განმავლობაში. სუნთქვადი სტრუქტურა იცავს კედელს ტენისა და ობისგან.",
       "body_en": "Façade paint engineered for long service outdoors. It withstands sun, rain, frost and temperature swings, resists fading and keeps its color for years. Its breathable structure protects walls from moisture and mold.",
-      "icon": "🏠",
       "color": "#1aa05a",
       "slug": "exterior-paint"
     },
@@ -74,7 +73,6 @@
       "desc_en": "Auxiliary construction materials and solutions — all in one place, from a single supplier.",
       "body_ka": "დამხმარე სამშენებლო მასალები და ხსნარები — შპაკლები, ანტისეპტიკები და სხვა პროდუქცია, რომელიც სჭირდება თქვენს ობიექტს. ერთი მომწოდებლისგან, ხარისხის გარანტიით. დაგვიკავშირდით კონკრეტული საჭიროებისთვის.",
       "body_en": "Auxiliary construction materials and solutions — fillers, antiseptics and other products your project needs. From a single supplier, with a quality guarantee. Contact us for specific requirements.",
-      "icon": "📦",
       "color": "#0fb5ba",
       "slug": "other-products"
     }

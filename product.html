@@ -87,7 +87,7 @@
         </span>
       </a>
       <div class="cat-top__right">
-        <a class="cat-back" href="index.html#products"><span>←</span> <span data-ka="პროდუქცია" data-en="Products">პროდუქცია</span></a>
+        <a class="cat-back" href="index.html#products"><span data-ka="პროდუქცია" data-en="Products">პროდუქცია</span></a>
         <div class="cat-lang" id="lang">
           <button class="is-active" data-lang="ka">ქარ</button><span>/</span><button data-lang="en">ENG</button>
         </div>
@@ -173,7 +173,7 @@
       if(product.image){
         visual.innerHTML = '<img src="'+product.image+'" alt="'+name+'">';
       } else {
-        visual.innerHTML = '<span class="ico">'+(product.icon||'🎨')+'</span>';
+        visual.innerHTML = '';
       }
       renderSub();
     }
@@ -188,12 +188,12 @@
         const card=document.createElement('div'); card.className='sub-card';
         const img=document.createElement('div'); img.className='sub-img';
         if(s.image){ const im=document.createElement('img'); im.src=s.image; im.alt=T(s,'name'); img.appendChild(im); }
-        else { img.style.background='linear-gradient(150deg,'+(product.color||'#2f7de1')+'22,#ffffff)'; img.textContent=product.icon||'🎨'; }
+        else { img.style.background='linear-gradient(150deg,'+(product.color||'#2f7de1')+'22,#ffffff)'; }
         const inn=document.createElement('div'); inn.className='sub-in';
         const h=document.createElement('h3'); h.textContent=T(s,'name');
         const p=document.createElement('p'); p.textContent=T(s,'desc');
         const buy=document.createElement('a'); buy.className='sub-buy'; buy.href=telHref;
-        buy.textContent = (lang==='en' ? '✆ Buy' : '✆ შეიძენთ');
+        buy.textContent = (lang==='en' ? 'Buy' : 'შეიძენთ');
         inn.append(h,p,buy); card.append(img,inn); grid.appendChild(card);
       });
     }
@@ -206,9 +206,8 @@
         a.href='product.html?id='+encodeURIComponent(p.slug||'');
         const bar=document.createElement('div'); bar.className='bar'; bar.style.background=p.color||'#2f7de1';
         const inner=document.createElement('div'); inner.className='mini-in';
-        const ico=document.createElement('span'); ico.className='mini-ico'; ico.textContent=p.icon||'🎨';
         const t=document.createElement('span'); t.className='mini-t'; t.textContent=T(p,'title');
-        inner.append(ico,t); a.append(bar,inner); grid.appendChild(a);
+        inner.append(t); a.append(bar,inner); grid.appendChild(a);
       });
     }
 
