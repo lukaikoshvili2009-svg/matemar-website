@@ -12,13 +12,16 @@
       "subproducts": [
         {
           "name_ka": "წებოცემენტი ეკონომი",
-          "desc_ka": "სამშენებლოდ "
+          "desc_ka": "სამშენებლოდ ",
+          "image": "/content/uploads/designarena_image_hpwmfx6j.png"
         },
         {
-          "name_ka": "წებოცემენტი სტანდარტი"
+          "name_ka": "წებოცემენტი სტანდარტი",
+          "image": "/content/uploads/designarena_image_36yawy9a-1.png"
         },
         {
-          "name_ka": "წებოცემენტი ექსტრა"
+          "name_ka": "წებოცემენტი ექსტრა",
+          "image": "/content/uploads/designarena_image_x53t035g.png"
         }
       ]
     },
