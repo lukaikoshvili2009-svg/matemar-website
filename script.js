@@ -229,11 +229,10 @@
       item.className = 'nav__mitem' + (subs.length ? ' has-sub' : '');
       const a = document.createElement('a');
       a.href = href;
-      const dot = document.createElement('span'); dot.className = 'dot'; dot.style.background = p.color || '#2f7de1';
       const t = document.createElement('span');
       setBilingual(t, p.title_ka, p.title_en || p.title_ka);
       t.textContent = p.title_ka || p.title_en || '';
-      a.append(dot, t);
+      a.append(t);
       if (subs.length) { const car = document.createElement('span'); car.className = 'nav__mcaret'; car.textContent = '›'; a.appendChild(car); }
       item.appendChild(a);
       if (subs.length) {
