@@ -132,7 +132,7 @@ section{position:relative}
   filter:blur(10px);opacity:.9}
 .hero.has-bg .hero__paint{display:none}
 .hero__slides{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero__slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .9s ease}
+.hero__slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0}
 .hero__slide.active{opacity:1}
 .hero.has-slider .hero__paint{display:none}
 .hero.has-slider .hero__accent{display:none}

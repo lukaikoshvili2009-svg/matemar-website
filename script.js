@@ -267,10 +267,12 @@
     wrap.innerHTML = ''; if (dots) dots.innerHTML = '';
     slides.forEach((sl, idx) => {
       const d = document.createElement('div');
-      d.className = 'hero__slide' + (idx === 0 ? ' active' : '');
+      d.className = 'hero__slide';
       d.style.backgroundImage = sl.image
         ? "linear-gradient(rgba(11,21,48,.66), rgba(11,21,48,.82)), url('" + sl.image + "')"
         : "radial-gradient(120% 120% at 80% -10%,#1a2f66,#0d1b3e)";
+      d.style.opacity = idx === 0 ? '1' : '0';
+      d.style.zIndex = idx === 0 ? '1' : '0';
       wrap.appendChild(d);
       if (dots && slides.length > 1) {
         const b = document.createElement('button');
@@ -280,29 +282,39 @@
         dots.appendChild(b);
       }
     });
-    let cur = 0;
+    const slideEls = [...wrap.children];
     const titleEl = document.querySelector('.hero__title');
     const leadEl = document.getElementById('heroLead');
-    function animateIn() {
-      [titleEl, leadEl].forEach(el => {
-        if (!el) return;
-        el.style.animation = 'none';
-        void el.offsetWidth;
-        el.style.animation = 'heroFadeUp .6s ease both';
-      });
+    let cur = 0, cleanupTimer = null;
+    function fadeText(el) {
+      if (!el || !el.animate) return;
+      el.getAnimations().forEach(a => a.cancel());
+      el.animate([{ opacity: 0, transform: 'translateY(20px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 650, easing: 'cubic-bezier(.22,.61,.36,1)' });
     }
-    function paint(i) {
-      [...wrap.children].forEach((c, k) => c.classList.toggle('active', k === i));
-      if (dots) [...dots.children].forEach((c, k) => c.classList.toggle('active', k === i));
+    function setText(i) {
       const sl = slides[i];
       setBilingual($('#heroTitleMain'), sl.title_ka, sl.title_en || sl.title_ka);
       setBilingual($('#heroLead'), sl.lead_ka, sl.lead_en || sl.lead_ka);
       applyLang(curLang());
-      animateIn();
     }
-    function go(i) { cur = (i + slides.length) % slides.length; paint(cur); restart(); }
-    function restart() { if (heroTimer) clearTimeout(heroTimer); if (slides.length > 1) heroTimer = setTimeout(() => go(cur + 1), 5500); }
-    paint(0); restart();
+    function settle() { slideEls.forEach((el, k) => { el.getAnimations().forEach(a => a.cancel()); el.style.opacity = k === cur ? '1' : '0'; el.style.zIndex = k === cur ? '1' : '0'; }); }
+    function go(i) {
+      i = (i + slides.length) % slides.length;
+      if (i === cur) { restart(); return; }
+      const prev = cur; cur = i;
+      setText(i); fadeText(titleEl); fadeText(leadEl);
+      if (dots) [...dots.children].forEach((c, k) => c.classList.toggle('active', k === i));
+      slideEls.forEach(el => el.getAnimations().forEach(a => a.cancel()));
+      const inc = slideEls[i], old = slideEls[prev];
+      inc.style.opacity = '1'; inc.style.zIndex = '2';
+      if (old) { old.style.opacity = '1'; old.style.zIndex = '1'; }
+      if (inc.animate) inc.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 900, easing: 'ease-in-out' });
+      clearTimeout(cleanupTimer); cleanupTimer = setTimeout(settle, 950);
+      restart();
+    }
+    function restart() { if (heroTimer) clearTimeout(heroTimer); if (slides.length > 1) heroTimer = setTimeout(() => go(cur + 1), 6000); }
+    settle(); fadeText(titleEl); fadeText(leadEl); restart();
   }
 
   function applySettings(s) {
