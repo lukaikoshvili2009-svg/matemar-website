@@ -19,7 +19,7 @@
   --shadow:0 18px 50px -22px rgba(13,27,62,.45);
   --shadow-sm:0 8px 24px -14px rgba(13,27,62,.4);
   --container:1180px;
-  --ff:"Noto Sans Georgian","Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --ff:"Google Sans","Noto Sans Georgian","Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   --ff-num:"Inter","Noto Sans Georgian",sans-serif;
 }
 
