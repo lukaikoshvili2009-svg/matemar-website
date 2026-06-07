@@ -257,6 +257,43 @@
     const digits = (num || '').replace(/[^\d]/g, '').replace(/^995/, '');
     return digits ? 'tel:+995' + digits : '#';
   }
+  let heroTimer = null;
+  function setupHeroSlider(slides) {
+    const wrap = document.getElementById('heroSlides');
+    const dots = document.getElementById('heroDots');
+    const hero = document.querySelector('.hero');
+    if (!wrap || !hero || !slides.length) return;
+    hero.classList.add('has-slider');
+    wrap.innerHTML = ''; if (dots) dots.innerHTML = '';
+    slides.forEach((sl, idx) => {
+      const d = document.createElement('div');
+      d.className = 'hero__slide' + (idx === 0 ? ' active' : '');
+      d.style.backgroundImage = sl.image
+        ? "linear-gradient(rgba(11,21,48,.66), rgba(11,21,48,.82)), url('" + sl.image + "')"
+        : "radial-gradient(120% 120% at 80% -10%,#1a2f66,#0d1b3e)";
+      wrap.appendChild(d);
+      if (dots && slides.length > 1) {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'hero__dot' + (idx === 0 ? ' active' : '');
+        b.setAttribute('aria-label', 'Slide ' + (idx + 1));
+        b.addEventListener('click', () => go(idx));
+        dots.appendChild(b);
+      }
+    });
+    let cur = 0;
+    function paint(i) {
+      [...wrap.children].forEach((c, k) => c.classList.toggle('active', k === i));
+      if (dots) [...dots.children].forEach((c, k) => c.classList.toggle('active', k === i));
+      const sl = slides[i];
+      setBilingual($('#heroTitleMain'), sl.title_ka, sl.title_en || sl.title_ka);
+      setBilingual($('#heroLead'), sl.lead_ka, sl.lead_en || sl.lead_ka);
+      applyLang(curLang());
+    }
+    function go(i) { cur = (i + slides.length) % slides.length; paint(cur); restart(); }
+    function restart() { if (heroTimer) clearTimeout(heroTimer); if (slides.length > 1) heroTimer = setTimeout(() => go(cur + 1), 5500); }
+    paint(0); restart();
+  }
+
   function applySettings(s) {
     if (!s) return;
     if (s.hero) {
@@ -264,8 +301,13 @@
       setBilingual($('#heroTitleAccent'), s.hero.title_accent_ka, s.hero.title_accent_en);
       setBilingual($('#heroLead'), s.hero.lead_ka, s.hero.lead_en);
       const hero = document.querySelector('.hero');
+      const slides = Array.isArray(s.hero.slides) ? s.hero.slides.filter(sl => sl && (sl.image || sl.title_ka || sl.title_en || sl.lead_ka || sl.lead_en)) : [];
       if (hero) {
-        if (s.hero.image) {
+        if (slides.length) {
+          hero.style.backgroundImage = '';
+          hero.classList.remove('has-bg');
+          setupHeroSlider(slides);
+        } else if (s.hero.image) {
           hero.style.backgroundImage = "linear-gradient(rgba(11,21,48,.74), rgba(11,21,48,.86)), url('" + s.hero.image + "')";
           hero.style.backgroundSize = 'cover';
           hero.style.backgroundPosition = 'center';

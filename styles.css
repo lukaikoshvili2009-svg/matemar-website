@@ -131,6 +131,16 @@ section{position:relative}
   radial-gradient(30% 40% at 60% 100%,rgba(26,160,90,.22),transparent 60%);
   filter:blur(10px);opacity:.9}
 .hero.has-bg .hero__paint{display:none}
+.hero__slides{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero__slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .9s ease}
+.hero__slide.active{opacity:1}
+.hero.has-slider .hero__paint{display:none}
+.hero.has-slider .hero__accent{display:none}
+.hero__inner{z-index:2}
+.hero__dots{display:flex;gap:10px;margin-top:1.9rem}
+.hero__dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.35);border:none;padding:0;cursor:pointer;transition:.25s}
+.hero__dot:hover{background:rgba(255,255,255,.65)}
+.hero__dot.active{background:var(--orange);width:28px;border-radius:6px}
 .hero__inner{position:relative;display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
 
 .eyebrow{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:.5em 1em;border-radius:999px;font-size:.82rem;font-weight:600;letter-spacing:.3px;margin-bottom:1.4rem;color:#dbe4ff}

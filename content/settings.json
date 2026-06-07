@@ -6,7 +6,23 @@
     "title_accent_en": "lasts",
     "lead_ka": "ინტერიერისა და ექსტერიერის ხარისხიანი საღებავი, გრუნტი და წებოცემენტი — წარმოებული საქართველოში, თანამედროვე დოზირებისა და ფილტრაციის ტექნოლოგიით.",
     "lead_en": "High-quality interior and exterior paints, primers and tile adhesive — produced in Georgia with modern dosing and filtration technology.",
-    "image": "/content/uploads/matemar banner.webp"
+    "image": "/content/uploads/matemar banner.webp",
+    "slides": [
+      {
+        "image": "/content/uploads/matemar banner.webp",
+        "title_ka": "მშრალი სამშენებლო ნაზავები",
+        "title_en": "Dry construction mixes",
+        "lead_ka": "ხარისხიანი წებოცემენტი, გრუნტი და შპაკლი — წარმოებული საქართველოში.",
+        "lead_en": "Quality tile adhesives, primers and fillers — produced in Georgia."
+      },
+      {
+        "image": "/content/uploads/matemar banner.webp",
+        "title_ka": "აკრილის საღებავები",
+        "title_en": "Acrylic paints",
+        "lead_ka": "ინტერიერისა და ექსტერიერის საღებავი ფერების ფართო პალიტრით.",
+        "lead_en": "Interior and exterior paints in a wide palette of colours."
+      }
+    ]
   },
   "about": {
     "p1_ka": "ჩვენი საწარმო დაარსდა 2005 წელს. მას შემდეგ მუდმივად ორიენტირებული ვართ განვითარებასა და კომერციულ ზრდაზე. დამფუძნებლისა და მმართველის — ბატონ ზაქარია ბიწაძის — ხელმძღვანელობით კომპანიის აქტივები მრავალჯერ გაიზარდა, რაც ფინანსურ სტაბილურობასა და წარმატებაზე მეტყველებს.",
