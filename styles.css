@@ -1,3 +1,8 @@
+/* ===== Display font (LGV Anastasia) — header & hero title ===== */
+@font-face{font-family:'LGV Anastasia';src:url('fonts/LGVAnastasia2025Geo-Bold-62333939983.ttf') format('truetype');font-weight:400 900;font-style:normal;font-display:swap}
+.hero__title{font-family:'LGV Anastasia','Google Sans','Noto Sans Georgian',sans-serif}
+.nav a,.brand__text strong{font-family:'LGV Anastasia','Google Sans','Noto Sans Georgian',sans-serif}
+
 /* ===== Design tokens ===== */
 :root{
   --navy:#0d1b3e;
