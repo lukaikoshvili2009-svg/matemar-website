@@ -3,7 +3,7 @@
     {
       "title_ka": "წებოცემენტი",
       "title_en": "Tile adhesive",
-      "desc_ka": "სხვადასხვა დანიშნულების წებოცემენტები\nMATEMAR ECONOM ეს არის ცემენტის ბაზაზე დამზადებული დუღაბი. გამოყენების არეალი: MATEMAR ECONOM იდიალურია სამშენებლო ბლოკის, აგურის დასაწყობად, ბეტონის ბაზაზე დამზადებული ფილების მისაკრობად.  მისი წასმის მაქსიმალური რეკომენდებული სისქეა 20 მმ.",
+      "desc_ka": "სხვადასხვა დანიშნულების წებოცემენტები",
       "desc_en": "Reliable adhesive cement for tiles and ceramics with strong bonding strength.",
       "body_ka": "საიმედო წებოცემენტი კერამიკული ფილების, კერამოგრანიტისა და ბუნებრივი ქვის მოსაპირკეთებლად. მაღალი შეჭიდულობა და ელასტიურობა უზრუნველყოფს მყარ დაფიქსირებას იატაკსა და კედელზე, შიდა და გარე პირობებში.",
       "body_en": "Reliable adhesive cement for ceramic tiles, porcelain and natural stone. High bonding strength and elasticity ensure a solid fix on floors and walls, indoors and outdoors.",
@@ -14,6 +14,7 @@
         {
           "name_ka": "წებოცემენტი ეკონომი",
           "desc_ka": "სამშენებლოდ ",
+          "desc_en": "MATEMAR ECONOM ეს არის ცემენტის ბაზაზე დამზადებული დუღაბი. გამოყენების არეალი: MATEMAR ECONOM იდიალურია სამშენებლო ბლოკის, აგურის დასაწყობად, ბეტონის ბაზაზე დამზადებული ფილების მისაკრობად.  მისი წასმის მაქსიმალური რეკომენდებული სისქეა 20 მმ.",
           "image": "/content/uploads/designarena_image_hpwmfx6j.png"
         },
         {
