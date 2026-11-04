@@ -13,17 +13,23 @@
       "subproducts": [
         {
           "name_ka": "წებოცემენტი ეკონომი",
+          "name_en": "MATEMAR ECONOM",
           "desc_ka": "MATEMAR ECONOM ეს არის ცემენტის ბაზაზე დამზადებული დუღაბი. გამოყენების არეალი: MATEMAR ECONOM იდიალურია სამშენებლო ბლოკის, აგურის დასაწყობად, ბეტონის ბაზაზე დამზადებული ფილების მისაკრობად.  მისი წასმის მაქსიმალური რეკომენდებული სისქეა 20 მმ.",
-          "desc_en": "MATEMAR ECONOM ეს არის ცემენტის ბაზაზე დამზადებული დუღაბი. გამოყენების არეალი: MATEMAR ECONOM იდიალურია სამშენებლო ბლოკის, აგურის დასაწყობად, ბეტონის ბაზაზე დამზადებული ფილების მისაკრობად.  მისი წასმის მაქსიმალური რეკომენდებული სისქეა 20 მმ.",
+          "desc_en": "MATEMAR ECONOM is a cement-based mortar. Scope of application: MATEMAR ECONOM is ideal for laying construction blocks and bricks, as well as for adhering tiles to concrete surfaces. The maximum application thickness is 20 mm.",
           "image": "/content/uploads/designarena_image_hpwmfx6j.png"
         },
         {
           "name_ka": "წებოცემენტი სტანდარტი",
+          "name_en": "MATEMAR STANDARD",
+          "desc_ka": "MATEMAR STANDARD არის ცემენტის ბაზაზე დამზადებული წებოცემენტი კერამიკული და ბეტონის ბაზაზე დამზადებული ფილებისათვის. მისი წასმის მაქსიმალური რეკომენდებული სისქეა 18 მმ. გამოყენების არეალი: MATEMAR STANDARD არის ყინვაგამძლე წებო-ცემენტი, რომელიც გამოიყენება როგორც შიდა, ასევე გარე სამუშაოებისათვის. MATEMAR STANDARD იდეალურია კაფელის, მეთლახის, კერამოგრანიტის, მოზაიკისათვის, თაბაშირმუყაოს ფილებისთვის და ასევე ე.წ. ესპანკისთვის",
+          "desc_en": "MATEMAR STANDARD is a cement-based adhesive for ceramic and concrete-based tiles. The maximum recommended application thickness is 18 mm. Scope of application: MATEMAR STANDARD is a frost-resistant adhesive suitable for both interior and exterior use. It is ideal for wall tiles, floor tiles, porcelain stoneware, mosaics, and gypsum board panels.",
           "image": "/content/uploads/designarena_image_36yawy9a-1.png"
         },
         {
           "name_ka": "წებოცემენტი ექსტრა",
-          "desc_en": "MATEMAR EXTRA არის ცემენტის ბაზაზე დამზადებული მაღალი კლასის წებოცემენტი. მისი წასმის მაქსიმალური რეკომენდებული სისქეა 20 მმ. გამოყენების არეალი: MATEMAR EXTRA არის ყინვაგამძლე წებოცემენტი, რომელიც გამოიყენება როგორც შიდა,  ასევე გარე და უშუალოდ ყინვაში მიმდინარე სამუშაოებისათვის. MATEMAR EXTRA იდეალურია ბუნებრივი მასალების:  (მამრმარილო, გრანიტი, ტრავენტინი, ბაზალტი, ბეტოპანი და სხვ.)  ასევე  მეთლახის,კერამოგრანიტის, მოზაიკისათვის,თაბაშირმუყაოს ფილებისთვის და ასევე ე.წ. ესპანკისთვის MATEMAR EXTRA  შეიცავს სპეციალურ პოლიმერს, რომელიც საშუალებას გვაძლევს გამოვიყენოთ თბოსაიზოლაციო ფილების  (იქსპიესი,  პენოპლასტი და სხვა) მისაკრავად და გარედან მოსაპირკეთებლად. MATEMAR EXTRA გამოიყენება ისეთ ადგილებში სამუშაოდ სადაც მომეტებული ტემპერატურული და ვიბრაციული დატვირთვაა.",
+          "name_en": "MATEMAR EXTRA",
+          "desc_ka": "MATEMAR EXTRA არის ცემენტის ბაზაზე დამზადებული მაღალი კლასის წებოცემენტი. მისი წასმის მაქსიმალური რეკომენდებული სისქეა 20 მმ. გამოყენების არეალი: MATEMAR EXTRA არის ყინვაგამძლე წებოცემენტი, რომელიც გამოიყენება როგორც შიდა,  ასევე გარე და უშუალოდ ყინვაში მიმდინარე სამუშაოებისათვის. MATEMAR EXTRA იდეალურია ბუნებრივი მასალების:  (მამრმარილო, გრანიტი, ტრავენტინი, ბაზალტი, ბეტოპანი და სხვ.)  ასევე  მეთლახის,კერამოგრანიტის, მოზაიკისათვის,თაბაშირმუყაოს ფილებისთვის და ასევე ე.წ. ესპანკისთვის MATEMAR EXTRA  შეიცავს სპეციალურ პოლიმერს, რომელიც საშუალებას გვაძლევს გამოვიყენოთ თბოსაიზოლაციო ფილების  (იქსპიესი,  პენოპლასტი და სხვა) მისაკრავად და გარედან მოსაპირკეთებლად. MATEMAR EXTRA გამოიყენება ისეთ ადგილებში სამუშაოდ სადაც მომეტებული ტემპერატურული და ვიბრაციული დატვირთვაა.",
+          "desc_en": "MATEMAR EXTRA is a high-grade, cement-based adhesive. The maximum recommended application thickness is 20 mm. Scope of use: MATEMAR EXTRA is a frost-resistant adhesive suitable for both interior and exterior applications, including work performed in freezing conditions. It is ideal for natural stone (marble, granite, travertine, basalt, Betopan, etc.), as well as ceramic tiles, porcelain stoneware, mosaics, gypsum boards, and various types of decorative tiles. MATEMAR EXTRA contains a special polymer that enables its use for bonding thermal insulation boards (such as XPS, expanded polystyrene, etc.) and for exterior cladding. MATEMAR EXTRA is suitable for use in areas subject to high thermal stress and vibration.",
           "image": "/content/uploads/designarena_image_x53t035g.png"
         }
       ]
