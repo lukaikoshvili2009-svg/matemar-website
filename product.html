@@ -33,6 +33,10 @@
     .pd-visual img{width:100%;height:100%;object-fit:cover}
     .pd-info h1{font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:800;color:var(--navy);letter-spacing:-.5px;line-height:1.12}
     .pd-lead{color:var(--ink);font-size:1.12rem;font-weight:600;margin-top:.9rem}
+    .pd-price{margin-top:1rem;font-size:1.6rem;font-weight:800;color:var(--navy)}
+    .pd-price small{font-size:1rem;font-weight:600;color:var(--muted)}
+    .sub-price{margin-top:.8rem;font-size:1.15rem;font-weight:800;color:var(--navy)}
+    .sub-price small{font-size:.88rem;font-weight:600;color:var(--muted)}
     .pd-body{color:var(--muted);font-size:1.05rem;margin-top:1.1rem;line-height:1.8}
     .pd-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.8rem}
     .pd-spec{margin-top:1.8rem;border-top:1px solid var(--line);padding-top:1.4rem;display:flex;flex-wrap:wrap;gap:.6rem}
@@ -109,6 +113,7 @@
           <div class="pd-info">
             <h1 id="pName"></h1>
             <p class="pd-lead" id="pLead"></p>
+            <p class="pd-price" id="pPrice" hidden></p>
             <div class="pd-body" id="pBody"></div>
             <div class="pd-actions">
               <a class="btn js-tel1" id="callBtn" href="tel:+995574477447" data-ka="დარეკეთ ახლავე" data-en="Call now">დარეკეთ ახლავე</a>
@@ -160,6 +165,23 @@
     function param(n){ return new URLSearchParams(location.search).get(n); }
     const T = (o,base)=> (o[base+'_'+lang] || o[base+'_ka'] || o[base+'_en'] || '');
 
+    /* optional GEL price (Pages CMS: price, price_unit_ka, price_unit_en) */
+    function toPrice(v){
+      if(v==null || v==='') return null;
+      const n=Number(String(v).replace(',','.').replace(/[^\d.]/g,''));
+      return isFinite(n) && n>0 ? n : null;
+    }
+    // fills el with "45 ₾ <small>/ 25 კგ ტომარა</small>"; returns false when there is no price
+    function fillPrice(el, o){
+      const n=toPrice(o && o.price);
+      el.textContent='';
+      if(n==null) return false;
+      el.append((n%1===0 ? String(n) : n.toFixed(2)) + ' ₾');
+      const unit=T(o,'price_unit');
+      if(unit){ const sm=document.createElement('small'); sm.textContent=' / '+unit; el.append(sm); }
+      return true;
+    }
+
     function renderProduct(){
       if(!product) return;
       const name=T(product,'title');
@@ -167,6 +189,7 @@
       $('#crumbName').textContent = name;
       $('#pName').textContent = name;
       $('#pLead').textContent = T(product,'desc');
+      const pp=$('#pPrice'); pp.hidden = !fillPrice(pp, product);
       $('#pBody').textContent = T(product,'body');
       const visual=$('#visual');
       visual.style.background = 'linear-gradient(150deg,'+(product.color||'#2f7de1')+',#0d1b3e)';
@@ -194,7 +217,10 @@
         const p=document.createElement('p'); p.textContent=T(s,'desc');
         const buy=document.createElement('a'); buy.className='sub-buy'; buy.href=telHref;
         buy.textContent = (lang==='en' ? 'Buy' : 'შეიძენთ');
-        inn.append(h,p,buy); card.append(img,inn); grid.appendChild(card);
+        inn.append(h,p);
+        const sp=document.createElement('p'); sp.className='sub-price';
+        if(fillPrice(sp, s)) inn.append(sp);
+        inn.append(buy); card.append(img,inn); grid.appendChild(card);
       });
     }
 

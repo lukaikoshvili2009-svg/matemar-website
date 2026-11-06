@@ -185,6 +185,27 @@
   }
   renderGallery(galleryFallback);
 
+  /* ---------- Prices (optional, GEL; edited in Pages CMS) ---------- */
+  function toPrice(v) {
+    if (v == null || v === '') return null;
+    const n = Number(String(v).replace(',', '.').replace(/[^\d.]/g, ''));
+    return isFinite(n) && n > 0 ? n : null;
+  }
+  const fmtPrice = (n) => (n % 1 === 0 ? String(n) : n.toFixed(2)) + ' ₾';
+  // Card label: own price ("45 ₾ / 25 კგ ტომარა"), else lowest sub-product price ("30 ₾-დან").
+  function cardPrice(p) {
+    const own = toPrice(p.price);
+    if (own != null) {
+      const ka = fmtPrice(own) + (p.price_unit_ka ? ' / ' + p.price_unit_ka : '');
+      const en = fmtPrice(own) + ((p.price_unit_en || p.price_unit_ka) ? ' / ' + (p.price_unit_en || p.price_unit_ka) : '');
+      return { ka, en };
+    }
+    const subs = Array.isArray(p.subproducts) ? p.subproducts.map(s => s && toPrice(s.price)).filter(n => n != null) : [];
+    if (!subs.length) return null;
+    const min = fmtPrice(Math.min(...subs));
+    return { ka: min + '-დან', en: 'from ' + min };
+  }
+
   /* ---------- Products (overridden by content/products.json) ---------- */
   const productsGrid = $('#productsGrid');
   function renderProducts(items) {
@@ -205,7 +226,16 @@
       more.className = 'pcard__more';
       setBilingual(more, 'ვრცლად', 'Learn more');
       more.textContent = 'ვრცლად';
-      art.append(h3, desc, more);
+      art.append(h3, desc);
+      const pr = cardPrice(p);
+      if (pr) {
+        const price = document.createElement('span');
+        price.className = 'pcard__price';
+        setBilingual(price, pr.ka, pr.en);
+        price.textContent = pr.ka;
+        art.appendChild(price);
+      }
+      art.appendChild(more);
       productsGrid.appendChild(art);
     });
     applyLang(curLang());
