@@ -108,26 +108,6 @@
     counters.forEach(c => cio.observe(c));
   }
 
-  /* ---------- Color swatches (homepage — plain colors, no codes) ---------- */
-  const palette = ['#f7f3ea','#e9d9c0','#f4b400','#ff7a45','#ff5a3c','#e8492c','#c0392b','#8a4dd6','#5b3aa3','#2f7de1','#1f5fb5','#0fb5ba','#0a8f88','#1aa05a','#7bbf3a','#d8e0c4','#cfd8e6','#9aa7bd','#54637d','#2b3a55','#16213e','#3a2e28','#7a5c45','#d4a373'];
-  const swatchWrap = $('#swatches');
-  function renderHomeSwatches(list) {
-    if (!swatchWrap || !list || !list.length) return;
-    swatchWrap.innerHTML = '';
-    const frag = document.createDocumentFragment();
-    list.forEach(c => {
-      const hex = typeof c === 'string' ? c : (c && c.hex);
-      if (!hex) return;
-      const d = document.createElement('div');
-      d.className = 'swatch';
-      d.style.background = hex;
-      d.title = hex;
-      frag.appendChild(d);
-    });
-    swatchWrap.appendChild(frag);
-  }
-  renderHomeSwatches(palette);
-
   /* ---------- Reveal helper for dynamically added nodes ---------- */
   function revealNew(els, stepMs) {
     if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('is-in')); return; }
@@ -422,18 +402,12 @@
     loadJSON('content/settings.json'),
     loadJSON('content/products.json'),
     loadJSON('content/clients.json'),
-    loadJSON('content/texts.json'),
-    loadJSON('content/colors.json')
-  ]).then(([settings, products, clientsData, texts, colorsData]) => {
+    loadJSON('content/texts.json')
+  ]).then(([settings, products, clientsData, texts]) => {
     if (texts) applyTexts(texts);
     if (settings) applySettings(settings);
     if (products && Array.isArray(products.items)) renderProducts(products.items);
     if (clientsData && Array.isArray(clientsData.items) && clientsData.items.length) renderGallery(clientsData.items);
-    if (colorsData && Array.isArray(colorsData.items) && colorsData.items.length) {
-      const items = colorsData.items, n = 24, step = Math.max(1, Math.floor(items.length / n)), sample = [];
-      for (let i = 0; i < items.length && sample.length < n; i += step) sample.push(items[i]);
-      renderHomeSwatches(sample);
-    }
   });
 
   /* ---------- Contact form (client-side only) ---------- */
