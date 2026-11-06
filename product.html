@@ -168,7 +168,7 @@
     /* optional GEL price (Pages CMS: price, price_unit_ka, price_unit_en) */
     function toPrice(v){
       if(v==null || v==='') return null;
-      const n=Number(String(v).replace(',','.').replace(/[^\d.]/g,''));
+      const n=Number(String(v).replace(',','.').replace(/[^\d.-]/g,''));
       return isFinite(n) && n>0 ? n : null;
     }
     // fills el with "45 ₾ <small>/ 25 კგ ტომარა</small>"; returns false when there is no price

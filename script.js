@@ -188,7 +188,7 @@
   /* ---------- Prices (optional, GEL; edited in Pages CMS) ---------- */
   function toPrice(v) {
     if (v == null || v === '') return null;
-    const n = Number(String(v).replace(',', '.').replace(/[^\d.]/g, ''));
+    const n = Number(String(v).replace(',', '.').replace(/[^\d.-]/g, ''));
     return isFinite(n) && n > 0 ? n : null;
   }
   const fmtPrice = (n) => (n % 1 === 0 ? String(n) : n.toFixed(2)) + ' ₾';
