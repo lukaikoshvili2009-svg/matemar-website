@@ -62,6 +62,12 @@
     .sub-card .sub-in{padding:1.1rem 1.2rem}
     .sub-card h3{font-size:1.08rem;color:var(--navy);margin-bottom:.4rem}
     .sub-card p{font-size:.93rem;color:var(--muted);line-height:1.6}
+    .pd-visual.is-pack{background:#f6f8fc !important;padding:24px}
+    .pd-visual.is-pack img{object-fit:contain}
+    .sub-card .sub-link{display:block;color:inherit}
+    .sub-card .sub-link:hover h3{color:var(--orange)}
+    .sub-more{display:inline-block;margin-top:.6rem;color:var(--orange);font-weight:700;font-size:.92rem}
+    .sub-more:hover{text-decoration:underline}
     .sub-buy{display:flex;align-items:center;justify-content:center;gap:.45rem;margin-top:1rem;width:100%;background:var(--orange);color:#fff;font-weight:700;padding:.65rem 1rem;border-radius:10px;font-size:.95rem;transition:background .2s,transform .2s}
     .sub-buy:hover{background:var(--orange-d);transform:translateY(-1px)}
 
@@ -106,6 +112,7 @@
         <div class="pd-crumbs">
           <a href="index.html" data-ka="მთავარი" data-en="Home">მთავარი</a> ·
           <a href="index.html#products" data-ka="პროდუქცია" data-en="Products">პროდუქცია</a> ·
+          <span id="crumbCatWrap" hidden><a id="crumbCat" href="#"></a> ·</span>
           <span id="crumbName"></span>
         </div>
         <div class="pd-grid">
@@ -123,7 +130,7 @@
         </div>
 
         <div class="pd-sub" id="subWrap" hidden>
-          <h2 data-ka="ამ კატეგორიის პროდუქცია" data-en="Products in this category">ამ კატეგორიის პროდუქცია</h2>
+          <h2 id="subTitle">ამ კატეგორიის პროდუქცია</h2>
           <div class="pd-sub-grid" id="subGrid"></div>
         </div>
 
@@ -182,42 +189,61 @@
       return true;
     }
 
+    /* sub-products: own page at product.html?id=<category>&sub=<key> */
+    let sub=null;
+    const slugify = t => String(t||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+    // key = CMS slug, else slug of English name, else position in the list
+    const subKey = (s,i) => slugify(s.slug) || slugify(s.name_en) || String(i);
+    const catHref = p => p.slug ? 'product.html?id='+encodeURIComponent(p.slug) : 'product.html?i='+all.indexOf(p);
+    const subHref = (p,s,i) => catHref(p)+'&sub='+encodeURIComponent(subKey(s,i));
+    // [{s, i}] with i = original index, so keys stay stable when empty rows are skipped
+    const subsOf = p => (p && Array.isArray(p.subproducts)) ? p.subproducts.map((s,i)=>({s,i})).filter(x=>x.s && T(x.s,'name')) : [];
+
     function renderProduct(){
       if(!product) return;
-      const name=T(product,'title');
+      const item = sub || product;
+      const name = sub ? T(sub,'name') : T(product,'title');
       document.title = name + ' | Matemar';
       $('#crumbName').textContent = name;
+      $('#crumbCatWrap').hidden = !sub;
+      if(sub){ const cl=$('#crumbCat'); cl.textContent=T(product,'title'); cl.href=catHref(product); }
       $('#pName').textContent = name;
-      $('#pLead').textContent = T(product,'desc');
-      const pp=$('#pPrice'); pp.hidden = !fillPrice(pp, product);
-      $('#pBody').textContent = T(product,'body');
+      const lead = sub ? '' : T(product,'desc');
+      $('#pLead').textContent = lead; $('#pLead').hidden = !lead;
+      const pp=$('#pPrice'); pp.hidden = !fillPrice(pp, item);
+      $('#pBody').textContent = sub ? T(sub,'desc') : T(product,'body');
       const visual=$('#visual');
+      visual.classList.toggle('is-pack', !!sub);
       visual.style.background = 'linear-gradient(150deg,'+(product.color||'#2f7de1')+',#0d1b3e)';
-      if(product.image){
-        visual.innerHTML = '<img src="'+product.image+'" alt="'+name+'">';
-      } else {
-        visual.innerHTML = '';
-      }
+      visual.innerHTML = '';
+      if(item.image){ const im=document.createElement('img'); im.src=item.image; im.alt=name; visual.appendChild(im); }
       renderSub();
     }
 
     function renderSub(){
       const wrap=document.getElementById('subWrap'), grid=document.getElementById('subGrid');
       if(!wrap||!grid) return;
-      const subs = (product && Array.isArray(product.subproducts)) ? product.subproducts.filter(s=>s && T(s,'name')) : [];
+      const subs = subsOf(product).filter(x=>x.s!==sub);
       if(!subs.length){ wrap.hidden=true; return; }
       wrap.hidden=false; grid.innerHTML='';
-      subs.forEach(s=>{
+      $('#subTitle').textContent = sub
+        ? (lang==='en' ? 'More in this category' : 'ამ კატეგორიის სხვა პროდუქცია')
+        : (lang==='en' ? 'Products in this category' : 'ამ კატეგორიის პროდუქცია');
+      subs.forEach(({s,i})=>{
+        const href=subHref(product,s,i);
         const card=document.createElement('div'); card.className='sub-card';
-        const img=document.createElement('div'); img.className='sub-img';
+        const img=document.createElement('a'); img.className='sub-img'; img.href=href;
         if(s.image){ const im=document.createElement('img'); im.src=s.image; im.alt=T(s,'name'); img.appendChild(im); }
         else { img.style.background='linear-gradient(150deg,'+(product.color||'#2f7de1')+'22,#ffffff)'; }
         const inn=document.createElement('div'); inn.className='sub-in';
-        const h=document.createElement('h3'); h.textContent=T(s,'name');
+        const hl=document.createElement('a'); hl.className='sub-link'; hl.href=href;
+        const h=document.createElement('h3'); h.textContent=T(s,'name'); hl.appendChild(h);
         const p=document.createElement('p'); p.textContent=T(s,'desc');
+        const more=document.createElement('a'); more.className='sub-more'; more.href=href;
+        more.textContent = (lang==='en' ? 'Learn more' : 'ვრცლად');
         const buy=document.createElement('a'); buy.className='sub-buy'; buy.href=telHref;
         buy.textContent = (lang==='en' ? 'Buy' : 'შეიძენთ');
-        inn.append(h,p);
+        inn.append(hl,p,more);
         const sp=document.createElement('p'); sp.className='sub-price';
         if(fillPrice(sp, s)) inn.append(sp);
         inn.append(buy); card.append(img,inn); grid.appendChild(card);
@@ -229,7 +255,7 @@
       all.filter(p=>p!==product).slice(0,4).forEach(p=>{
         const a=document.createElement('a');
         a.className='pd-mini';
-        a.href='product.html?id='+encodeURIComponent(p.slug||'');
+        a.href=catHref(p);
         const bar=document.createElement('div'); bar.className='bar'; bar.style.background=p.color||'#2f7de1';
         const inner=document.createElement('div'); inner.className='mini-in';
         const t=document.createElement('span'); t.className='mini-t'; t.textContent=T(p,'title');
@@ -247,6 +273,8 @@
       if(id) product = all.find(p=>p.slug===id);
       if(!product && !isNaN(i)) product = all[i];
       if(!product && all.length) product = all[0];
+      const sk=param('sub');
+      if(product && sk){ const hit=subsOf(product).find(x=>subKey(x.s,x.i)===sk); sub = hit ? hit.s : null; }
 
       if(settings && settings.contact && settings.contact.phone1){
         telHref='tel:+995'+settings.contact.phone1.replace(/[^\d]/g,'').replace(/^995/,'');

@@ -243,6 +243,10 @@
     renderProductsMenu(items);
   }
 
+  /* Sub-product page key: CMS slug, else slug of English name, else position (must match product.html) */
+  const slugify = t => String(t || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const subKey = (s, i) => slugify(s.slug) || slugify(s.name_en) || String(i);
+
   /* ---------- Products dropdown menu in the nav (with sub-product flyout) ---------- */
   function renderProductsMenu(items) {
     const menu = document.getElementById('productsMenu');
@@ -251,7 +255,8 @@
     items.forEach((p, i) => {
       if (p.slug === 'color-catalog') return; // colors are handled by the separate "ფერები" link
       const href = p.slug ? ('product.html?id=' + encodeURIComponent(p.slug)) : ('product.html?i=' + i);
-      const subs = Array.isArray(p.subproducts) ? p.subproducts.filter(s => s && (s.name_ka || s.name_en)) : [];
+      // keep original index: it is the fallback key of a sub-product page (same rule as product.html)
+      const subs = Array.isArray(p.subproducts) ? p.subproducts.map((s, si) => s && Object.assign({}, s, { _i: si })).filter(s => s && (s.name_ka || s.name_en)) : [];
       const item = document.createElement('div');
       item.className = 'nav__mitem' + (subs.length ? ' has-sub' : '');
       const a = document.createElement('a');
@@ -265,7 +270,7 @@
       if (subs.length) {
         const fly = document.createElement('div'); fly.className = 'nav__flyout';
         subs.forEach(s => {
-          const sa = document.createElement('a'); sa.href = href;
+          const sa = document.createElement('a'); sa.href = href + '&sub=' + encodeURIComponent(subKey(s, s._i));
           const st = document.createElement('span');
           setBilingual(st, s.name_ka, s.name_en || s.name_ka);
           st.textContent = s.name_ka || s.name_en || '';
