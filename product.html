@@ -62,8 +62,17 @@
     .sub-card .sub-in{padding:1.1rem 1.2rem}
     .sub-card h3{font-size:1.08rem;color:var(--navy);margin-bottom:.4rem}
     .sub-card p{font-size:.93rem;color:var(--muted);line-height:1.6}
-    .pd-visual.is-pack{background:#f6f8fc !important;padding:24px}
-    .pd-visual.is-pack img{object-fit:contain}
+    .pd-visual.is-pack{background:#fff !important;border:1px solid var(--line);padding:24px}
+    .pd-visual.is-pack img{position:absolute;inset:24px;width:calc(100% - 48px);height:calc(100% - 48px);object-fit:contain}
+    .pd-gallery{min-width:0}
+    .pd-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.92);color:var(--navy);font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow-sm);transition:background .2s}
+    .pd-nav:hover{background:#fff}
+    .pd-nav--prev{left:12px}
+    .pd-nav--next{right:12px}
+    .pd-thumbs{display:flex;gap:.7rem;margin-top:.9rem;overflow-x:auto;padding-bottom:4px}
+    .pd-thumbs button{flex:0 0 92px;height:92px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:6px;cursor:pointer;transition:border-color .2s}
+    .pd-thumbs button img{width:100%;height:100%;object-fit:contain}
+    .pd-thumbs button.is-active{border:2px solid var(--orange)}
     .sub-card .sub-link{display:block;color:inherit}
     .sub-card .sub-link:hover h3{color:var(--orange)}
     .sub-more{display:inline-block;margin-top:.6rem;color:var(--orange);font-weight:700;font-size:.92rem}
@@ -82,6 +91,8 @@
       .pd-grid{grid-template-columns:1fr;gap:1.6rem}
       .pd-more-grid{grid-template-columns:repeat(2,1fr)}
       .pd-sub-grid{grid-template-columns:1fr}
+      .pd-thumbs button{flex-basis:72px;height:72px}
+      .pd-nav{width:36px;height:36px;font-size:1.3rem}
     }
   </style>
 </head>
@@ -116,7 +127,10 @@
           <span id="crumbName"></span>
         </div>
         <div class="pd-grid">
-          <div class="pd-visual" id="visual"><span class="ico" id="visualIcon"></span></div>
+          <div class="pd-gallery">
+            <div class="pd-visual" id="visual"></div>
+            <div class="pd-thumbs" id="thumbs" hidden></div>
+          </div>
           <div class="pd-info">
             <h1 id="pName"></h1>
             <p class="pd-lead" id="pLead"></p>
@@ -212,13 +226,51 @@
       $('#pLead').textContent = lead; $('#pLead').hidden = !lead;
       const pp=$('#pPrice'); pp.hidden = !fillPrice(pp, item);
       $('#pBody').textContent = sub ? T(sub,'desc') : T(product,'body');
-      const visual=$('#visual');
-      visual.classList.toggle('is-pack', !!sub);
-      visual.style.background = 'linear-gradient(150deg,'+(product.color||'#2f7de1')+',#0d1b3e)';
-      visual.innerHTML = '';
-      if(item.image){ const im=document.createElement('img'); im.src=item.image; im.alt=name; visual.appendChild(im); }
+      renderGallery(item, name);
       renderSub();
     }
+
+    /* image gallery: main `image` first, then CMS `gallery` list; arrows + thumbnails when >1 */
+    let gal=[], gi=0, galKey='';
+    function imagesOf(o){
+      const extra = Array.isArray(o.gallery) ? o.gallery.map(x => typeof x==='string' ? x : (x && (x.image || x.src))) : [];
+      return [o.image, ...extra].filter((u,k,a) => u && a.indexOf(u)===k);
+    }
+    function renderGallery(item, name){
+      const visual=$('#visual'), thumbs=$('#thumbs');
+      const list=imagesOf(item), key=list.join('|');
+      if(key!==galKey){ gal=list; galKey=key; gi=0; }   // keep position when only the language changes
+      visual.classList.toggle('is-pack', !!sub || gal.length>1);
+      visual.style.background = 'linear-gradient(150deg,'+(product.color||'#2f7de1')+',#0d1b3e)';
+      visual.innerHTML=''; thumbs.innerHTML='';
+      thumbs.hidden = gal.length<2;
+      if(!gal.length) return;
+      const im=document.createElement('img'); im.id='galMain'; im.alt=name; visual.appendChild(im);
+      if(gal.length>1){
+        [['prev','‹',-1,'წინა ფოტო','Previous photo'],['next','›',1,'შემდეგი ფოტო','Next photo']].forEach(([cls,ch,d,ka,en])=>{
+          const b=document.createElement('button'); b.type='button'; b.className='pd-nav pd-nav--'+cls; b.textContent=ch;
+          b.setAttribute('aria-label', lang==='en'?en:ka); b.addEventListener('click',()=>showImg(gi+d)); visual.appendChild(b);
+        });
+        gal.forEach((u,k)=>{
+          const b=document.createElement('button'); b.type='button';
+          b.setAttribute('aria-label',(lang==='en'?'Photo ':'ფოტო ')+(k+1));
+          const t=document.createElement('img'); t.src=u; t.alt=''; t.loading='lazy'; b.appendChild(t);
+          b.addEventListener('click',()=>showImg(k)); thumbs.appendChild(b);
+        });
+      }
+      showImg(gi);
+    }
+    function showImg(k){
+      if(!gal.length) return;
+      gi=(k+gal.length)%gal.length;
+      const im=$('#galMain'); if(im) im.src=gal[gi];
+      [...$('#thumbs').children].forEach((b,j)=>b.classList.toggle('is-active', j===gi));
+    }
+    document.addEventListener('keydown', e=>{
+      if(gal.length<2 || /input|textarea|select/i.test((e.target && e.target.tagName) || '')) return;
+      if(e.key==='ArrowLeft') showImg(gi-1);
+      if(e.key==='ArrowRight') showImg(gi+1);
+    });
 
     function renderSub(){
       const wrap=document.getElementById('subWrap'), grid=document.getElementById('subGrid');
@@ -238,12 +290,11 @@
         const inn=document.createElement('div'); inn.className='sub-in';
         const hl=document.createElement('a'); hl.className='sub-link'; hl.href=href;
         const h=document.createElement('h3'); h.textContent=T(s,'name'); hl.appendChild(h);
-        const p=document.createElement('p'); p.textContent=T(s,'desc');
         const more=document.createElement('a'); more.className='sub-more'; more.href=href;
         more.textContent = (lang==='en' ? 'Learn more' : 'ვრცლად');
         const buy=document.createElement('a'); buy.className='sub-buy'; buy.href=telHref;
         buy.textContent = (lang==='en' ? 'Buy' : 'შეიძენთ');
-        inn.append(hl,p,more);
+        inn.append(hl,more);
         const sp=document.createElement('p'); sp.className='sub-price';
         if(fillPrice(sp, s)) inn.append(sp);
         inn.append(buy); card.append(img,inn); grid.appendChild(card);
