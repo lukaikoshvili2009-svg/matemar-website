@@ -47,18 +47,18 @@
       "desc_en": "Water-based paint for walls and ceilings — breathable, odorless and easy to clean.",
       "body_ka": "მაღალხარისხიანი წყალდისპერსიული საღებავი შიდა კედლებისა და ჭერისთვის. ქმნის სასიამოვნო მქრქალ ზედაპირს, მდგრადია გახეხვის მიმართ და ადვილად ირეცხება. პრაქტიკულად უსუნოა, სწრაფად შრება და ეკოლოგიურად სუფთაა — უსაფრთხო საცხოვრებელი და საოფისე სივრცეებისთვის. ხელმისაწვდომია ფერების ფართო პალიტრაში ზუსტი დოზირების სისტემით.",
       "body_en": "Premium water-based paint for interior walls and ceilings. It creates a pleasant matte finish, resists scuffing and is easy to wash. Practically odorless, fast-drying and eco-friendly — safe for homes and offices. Available in a wide palette through our precise tinting system.",
-      "image": "/content/uploads/MATEMAR A15 White Paint Bucket.png",
       "color": "#2f7de1",
       "slug": "interior-paint",
       "subproducts": [
         {
           "name_ka": "ინტერიერის საღებავი A10",
-          "name_en": "MATEMAR A10"
+          "name_en": "MATEMAR A10",
+          "image": "/content/uploads/Gemini_Generated_Image_mx57pimx57pimx57.webp"
         },
         {
           "name_ka": "ინტერიერის საღებავი A15",
           "name_en": "MATEMAR A15",
-          "image": "/content/uploads/MATEMAR A15 White Paint Bucket.png"
+          "image": "/content/uploads/Gemini_Generated_Image_555bu9555bu9555b-1.webp"
         }
       ]
     },
@@ -74,7 +74,8 @@
       "subproducts": [
         {
           "name_ka": "ექსტერიერის საღებავი S25",
-          "name_en": "MATEMAR S25"
+          "name_en": "MATEMAR S25",
+          "image": "/content/uploads/Gemini_Generated_Image_trtstrtrtstrtrts.webp"
         }
       ]
     },
